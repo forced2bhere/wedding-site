@@ -3,29 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Po & Jeanine — August 23, 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Jeanine & Po — August 23, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ============================================================
-   RESET & TOKENS
+   RESET
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --gold:        #C4A35A;
-  --gold-light:  #D4BC7C;
-  --charcoal:    #1c1814;
-  --text:        #1a1612;
-  --muted:       #6e6760;
-  --cream:       #faf8f4;
-  --white:       #ffffff;
-  --card-radius: 18px;
-  --font-serif:  'Cormorant Garamond', Georgia, serif;
-  --font-sans:   'Montserrat', 'Helvetica Neue', sans-serif;
+  --gold:      #b8975a;
+  --dark:      #1a1612;
+  --muted:     #706b65;
+  --cream:     #faf9f7;
+  --white:     #ffffff;
+  --nav-h:     52px;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'Montserrat', 'Helvetica Neue', sans-serif;
 
-  /* White brick wall pattern — large realistic bricks */
-  --brick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='120'%3E%3Crect width='480' height='120' fill='%23dedad5'/%3E%3Crect x='2' y='2' width='236' height='54' rx='1' fill='%23f9f8f6'/%3E%3Crect x='242' y='2' width='236' height='54' rx='1' fill='%23faf9f7'/%3E%3Crect x='-118' y='62' width='236' height='54' rx='1' fill='%23f8f7f5'/%3E%3Crect x='122' y='62' width='236' height='54' rx='1' fill='%23f9f8f6'/%3E%3Crect x='362' y='62' width='236' height='54' rx='1' fill='%23faf9f7'/%3E%3C/svg%3E");
+  /* Large realistic white brick pattern matching the photo */
+  --brick-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='120'%3E%3Crect width='480' height='120' fill='%23d9d4cc'/%3E%3Crect x='2' y='2' width='236' height='54' rx='0.5' fill='%23f8f7f5'/%3E%3Crect x='242' y='2' width='236' height='54' rx='0.5' fill='%23f5f4f1'/%3E%3Crect x='-118' y='62' width='236' height='54' rx='0.5' fill='%23f6f5f2'/%3E%3Crect x='122' y='62' width='236' height='54' rx='0.5' fill='%23f8f7f5'/%3E%3Crect x='362' y='62' width='236' height='54' rx='0.5' fill='%23f5f4f1'/%3E%3C/svg%3E");
 }
 
 html { scroll-behavior: smooth; }
@@ -33,284 +31,413 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
   font-weight: 300;
-  color: var(--text);
+  color: var(--dark);
   line-height: 1.7;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-
-  /* Brick wall as the full-page background */
-  background-color: #dedad5;
-  background-image: var(--brick);
+  background-color: #d9d4cc;
+  background-image: var(--brick-bg);
   background-size: 480px 120px;
-
-  /* room for fixed bottom nav on mobile */
-  padding-bottom: 68px;
 }
-@media (min-width: 700px) { body { padding-bottom: 0; } }
 
 /* ============================================================
-   HERO — full screen, brick with dark overlay, click to advance
+   TOP NAVIGATION
+   ============================================================ */
+.top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 400;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: rgba(248,247,245,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--dark);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+/* desktop links */
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--dark); }
+
+/* hamburger — shown on mobile */
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px; height: 1.5px;
+  background: var(--dark);
+  transition: 0.3s;
+}
+
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+}
+
+/* ============================================================
+   SLIDE-OUT DRAWER (mobile)
+   ============================================================ */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: rgba(0,0,0,0.25);
+}
+.drawer-overlay.open { display: block; }
+
+.drawer {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 900;
+  width: min(75vw, 320px);
+  background: #f6f5f3;
+  padding: 2rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-close {
+  position: absolute;
+  top: 1rem; right: 1.2rem;
+  background: none; border: none;
+  font-size: 1.4rem; cursor: pointer;
+  color: var(--muted); line-height: 1;
+}
+.drawer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+}
+.drawer-nav { list-style: none; flex: 1; }
+.drawer-nav li { margin-bottom: 0.2rem; }
+.drawer-nav a {
+  display: block;
+  padding: 0.8rem 0;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: color 0.2s;
+}
+.drawer-nav a:hover { color: var(--gold); }
+.drawer-rsvp {
+  display: block;
+  margin-top: 2rem;
+  padding: 0.85rem 1.5rem;
+  border: 1.5px solid var(--dark);
+  border-radius: 50px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.drawer-rsvp:hover { background: var(--dark); color: var(--white); }
+
+/* ============================================================
+   HERO — full screen, bright white brick, left-aligned
    ============================================================ */
 .hero {
   min-height: 100vh;
-  position: relative;
+  padding: calc(var(--nav-h) + 5vh) 2rem 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem 1.5rem 6rem;
-  cursor: pointer;
-  overflow: hidden;
-  color: var(--white);
-}
-
-/* brick texture shows through a dark semi-transparent wash */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(18,14,10,0.82);
-  background-image: var(--brick);
-  background-size: 480px 120px;
-  background-blend-mode: luminosity;
-  z-index: 0;
-}
-
-.hero-inner {
+  justify-content: flex-end;
   position: relative;
-  z-index: 1;
-  max-width: 600px;
-  width: 100%;
+  overflow: hidden;
 }
 
-.hero-tagline {
+/* The page body brick shows through here — no overlay needed */
+
+.hero-names {
   font-family: var(--font-sans);
-  font-size: clamp(0.6rem, 2vw, 0.75rem);
-  font-weight: 500;
-  letter-spacing: 5px;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-weight: 200;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 2rem;
-}
-.hero-tagline .dot { color: rgba(196,163,90,0.4); margin: 0 0.5em; font-size: 0.9em; }
-
-.hero h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(3.8rem, 13vw, 7rem);
-  font-weight: 300;
-  line-height: 1.0;
-  color: var(--white);
-  margin-bottom: 1.2rem;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(30,25,20,0.75);
+  line-height: 1.05;
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
 }
 
-.hero-line {
-  width: 44px;
-  height: 1px;
-  background: var(--gold);
-  margin: 0 auto 1.4rem;
-  opacity: 0.6;
+.hero-words {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.hero-words li {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 10vw, 7rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(30,25,20,0.6);
+  line-height: 1.1;
 }
 
 .hero-meta {
-  font-size: clamp(0.68rem, 2vw, 0.8rem);
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 0.4rem;
-}
-.hero-venue {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 2.8rem;
-}
-
-/* Countdown */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: clamp(1.2rem, 5vw, 2.5rem);
-}
-.cd-item { text-align: center; }
-.cd-num {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-}
-.cd-label {
-  font-size: 0.58rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.38);
-  margin-top: 0.3rem;
-}
-
-/* scroll hint */
-.hero-hint {
-  position: absolute;
-  bottom: 1.8rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+  margin-top: clamp(2rem, 5vh, 4rem);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  color: rgba(255,255,255,0.28);
-  font-size: 0.55rem;
+  gap: 0.2rem;
+}
+.hero-meta-line {
+  font-size: 0.72rem;
+  font-weight: 400;
   letter-spacing: 3px;
   text-transform: uppercase;
-  white-space: nowrap;
+  color: var(--muted);
+}
+
+/* click-hint */
+.hero-hint {
+  position: absolute;
+  bottom: 2rem; right: 2rem;
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(30,25,20,0.35);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 .hero-hint svg { animation: bob 2s ease-in-out infinite; }
 @keyframes bob {
-  0%,100% { transform: translateY(0); opacity: .28; }
-  50%      { transform: translateY(7px); opacity: .6; }
+  0%,100% { transform: translateY(0); opacity:.35; }
+  50%      { transform: translateY(6px); opacity:.65; }
 }
 
 /* ============================================================
-   CONTENT CARDS — float on the brick wall
+   CONTENT SECTIONS — white cards on brick
    ============================================================ */
-.card {
+.section-card {
   background: var(--white);
-  margin: 10px 0;
+  margin: 8px 0;
 }
-.card.cream { background: var(--cream); }
-.card.dark  { background: var(--charcoal); color: var(--white); }
+.section-card.cream  { background: var(--cream); }
+.section-card.dark   { background: #1c1814; color: var(--white); }
 
-/* first card gets rounded top corners to transition from hero */
-.card:first-of-type {
-  border-radius: var(--card-radius) var(--card-radius) 0 0;
-  margin-top: 0;
+.section-card:first-of-type {
+  border-radius: 16px 16px 0 0;
 }
 
-.card-inner {
-  max-width: 680px;
+.sec-inner {
+  max-width: 720px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem;
+  padding: 4rem 1.5rem;
 }
-@media (min-width: 500px) { .card-inner { padding: 4rem 2rem; } }
+@media (min-width: 500px) { .sec-inner { padding: 5rem 2.5rem; } }
 
-/* ============================================================
-   SECTION HEADERS
-   ============================================================ */
 .sec-label {
-  font-size: 0.62rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
-  text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
-.dark .sec-label { color: var(--gold-light); }
+.dark .sec-label { color: #d4bc7c; }
 
 .sec-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
   font-weight: 300;
-  text-align: center;
+  color: var(--dark);
   line-height: 1.15;
-  color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 .dark .sec-title { color: var(--white); }
 
 .sec-rule {
-  width: 32px;
-  height: 1px;
+  width: 28px; height: 1px;
   background: var(--gold);
-  margin: 1rem auto 2.5rem;
-  opacity: 0.6;
+  margin: 1rem 0 2.2rem;
+  opacity: 0.7;
 }
 
 /* ============================================================
-   OUR STORY
+   STORY
    ============================================================ */
 .story-text {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  font-size: clamp(1.1rem, 2.8vw, 1.3rem);
   font-style: italic;
+  font-weight: 300;
   line-height: 2;
   color: #3a3530;
-  text-align: center;
 }
 
 /* ============================================================
-   DETAILS CARDS
+   DETAILS TILES
    ============================================================ */
-.details-grid {
+.tiles {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
-@media (min-width: 480px) { .details-grid { grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 480px) { .tiles { grid-template-columns: repeat(3,1fr); } }
 
-.detail-tile {
-  background: var(--white);
-  border: 1px solid rgba(196,163,90,0.15);
-  border-top: 3px solid var(--gold);
-  border-radius: 8px;
+.tile {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-top: 2px solid var(--gold);
+  border-radius: 6px;
   padding: 1.8rem 1.2rem;
   text-align: center;
+  background: var(--white);
 }
-.card.cream .detail-tile { background: #f0ede7; }
+.cream .tile { background: #f1ede7; }
 
-.detail-tile svg { margin-bottom: 0.9rem; }
-.detail-tile h3 {
+.tile svg { margin-bottom: 0.9rem; }
+.tile h3 {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  color: var(--text);
+  color: var(--dark);
   margin-bottom: 0.4rem;
 }
-.detail-tile p { font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+.tile p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+/* ============================================================
+   WHERE TO STAY
+   ============================================================ */
+.hotel-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.hotel-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.hotel-info h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 0.2rem;
+}
+.hotel-info p { font-size: 0.82rem; color: var(--muted); }
+.hotel-link {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dark);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 40px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.hotel-link:hover { background: var(--dark); color: var(--white); border-color: var(--dark); }
+
+/* ============================================================
+   REGISTRY
+   ============================================================ */
+.registry-links { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+.registry-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 0.88rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  background: var(--white);
+}
+.registry-btn:hover { border-color: var(--gold); }
+.registry-btn svg { opacity: 0.4; }
 
 /* ============================================================
    ANNOUNCEMENTS
    ============================================================ */
 .ann-item {
-  border-left: 2px solid var(--gold);
-  padding: 1.2rem 0 1.2rem 1.5rem;
-  margin-bottom: 1.3rem;
+  border-left: 1.5px solid var(--gold);
+  padding: 1rem 0 1rem 1.5rem;
+  margin-bottom: 1.2rem;
   position: relative;
 }
 .ann-item::before {
-  content: '';
-  position: absolute;
-  left: -5px; top: 1.6rem;
-  width: 8px; height: 8px;
-  background: var(--gold); border-radius: 50%;
+  content:'';
+  position:absolute;
+  left:-5px; top:1.4rem;
+  width:8px; height:8px;
+  background:var(--gold); border-radius:50%;
 }
 .ann-date {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
+  font-size:0.6rem; font-weight:500;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:0.3rem;
 }
 .ann-item h3 {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--text);
-  margin-bottom: 0.3rem;
+  font-family:var(--font-serif); font-size:1.15rem;
+  font-weight:400; color:var(--dark); margin-bottom:0.3rem;
 }
-.ann-item p { font-size: 0.85rem; color: var(--muted); }
+.ann-item p { font-size:0.84rem; color:var(--muted); }
 
 /* ============================================================
-   CELEBRATE — dark foodie grid
+   FOODIE CELEBRATE
    ============================================================ */
 .foodie-grid {
   display: grid;
@@ -320,335 +447,214 @@ body {
 }
 @media (min-width: 480px) { .foodie-grid { grid-template-columns: repeat(3,1fr); } }
 
-.foodie-item { text-align: center; padding: 1.5rem 0.5rem; }
-.foodie-item svg { margin-bottom: 1rem; }
+.foodie-item { text-align:center; padding:1.2rem 0.5rem; }
+.foodie-item svg { margin-bottom:0.9rem; }
 .foodie-item h3 {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
+  font-family:var(--font-serif); font-size:1.35rem;
+  font-weight:300; color:#d4bc7c; margin-bottom:0.3rem;
 }
-.foodie-item p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.foodie-item p { font-size:0.8rem; color:rgba(255,255,255,0.5); line-height:1.6; }
 
 /* ============================================================
    RSVP FORM
    ============================================================ */
-.rsvp-form { max-width: 460px; margin: 0 auto; }
-
-.form-group { margin-bottom: 1.2rem; }
+.rsvp-form { max-width:440px; margin:0 auto; }
+.form-group { margin-bottom:1.1rem; }
 .form-group label {
-  display: block;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 0.4rem;
+  display:block; font-size:0.6rem; font-weight:500;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--dark); margin-bottom:0.4rem;
 }
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 300;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: var(--white);
-  color: var(--text);
-  transition: border-color 0.2s;
-  -webkit-appearance: none;
+  width:100%; padding:0.82rem 1rem;
+  font-family:var(--font-sans); font-size:0.9rem; font-weight:300;
+  border:1px solid #ddd; border-radius:8px;
+  background:var(--white); color:var(--dark);
+  transition:border-color 0.2s; -webkit-appearance:none;
 }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { outline: none; border-color: var(--gold); }
-.form-group textarea { resize: vertical; min-height: 88px; }
-
-.btn {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background: var(--gold);
-  color: var(--white);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s;
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus {
+  outline:none; border-color:var(--gold);
 }
-.btn:hover { background: var(--charcoal); transform: translateY(-1px); }
-.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
-.btn.secondary { background: var(--charcoal); }
-.btn.secondary:hover { background: #000; }
-
-.plus-one-note {
-  display: none;
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-style: italic;
-  margin-top: 0.3rem;
+.form-group textarea { resize:vertical; min-height:85px; }
+.plus-note {
+  display:none; font-size:0.76rem; color:var(--muted);
+  font-style:italic; margin-top:0.3rem;
 }
-
 .form-msg {
-  margin-top: 1.2rem;
-  padding: 0.9rem 1rem;
-  border-radius: 8px;
-  font-size: 0.88rem;
-  display: none;
+  margin-top:1rem; padding:0.9rem 1rem;
+  border-radius:8px; font-size:0.85rem; display:none;
 }
-.form-msg.ok  { display: block; background: #edf7ee; color: #276b2e; }
-.form-msg.err { display: block; background: #fbe9e7; color: #c62828; }
+.form-msg.ok  { display:block; background:#edf7ee; color:#276b2e; }
+.form-msg.err { display:block; background:#fbe9e7; color:#c62828; }
+
+.btn-submit {
+  display:block; width:100%; padding:1rem;
+  background:var(--dark); color:var(--white);
+  font-family:var(--font-sans); font-size:0.7rem;
+  font-weight:500; letter-spacing:3px; text-transform:uppercase;
+  border:none; border-radius:8px; cursor:pointer;
+  transition:background 0.2s, transform 0.15s;
+}
+.btn-submit:hover { background:#000; transform:translateY(-1px); }
+.btn-submit:disabled { opacity:0.55; transform:none; cursor:not-allowed; }
 
 /* ============================================================
-   FOOD DIVIDER STRIP (visible brick between cards)
+   FOOD ICON STRIPS (between cards, on brick bg)
    ============================================================ */
 .food-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  padding: 1.6rem 1rem;
-  /* brick already shows through body bg */
+  display:flex; align-items:center; justify-content:center;
+  gap:1.2rem; padding:1.4rem 1rem;
 }
-.food-strip svg { opacity: 0.5; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1)); }
-
-/* ============================================================
-   BOTTOM NAV — mobile only, withjoy-style
-   ============================================================ */
-.bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 500;
-  height: 64px;
-  background: rgba(255,255,255,0.82);
-  backdrop-filter: saturate(180%) blur(18px);
-  -webkit-backdrop-filter: saturate(180%) blur(18px);
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-@media (max-width: 699px) { .bottom-nav { display: flex; } }
-
-.bottom-nav a {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  text-decoration: none;
-  color: #999;
-  font-size: 0.55rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-  padding: 0.5rem 0;
-}
-.bottom-nav a.active,
-.bottom-nav a:hover { color: var(--gold); }
-.bottom-nav a svg { transition: stroke 0.2s; }
-.bottom-nav a.active svg { stroke: var(--gold); }
+.food-strip svg { opacity:0.45; }
 
 /* ============================================================
    FOOTER
    ============================================================ */
 footer {
-  background: var(--charcoal);
-  text-align: center;
-  padding: 3rem 1.5rem;
-  color: rgba(255,255,255,0.3);
-  font-size: 0.78rem;
+  background:#1c1814;
+  text-align:center; padding:3rem 1.5rem;
+  color:rgba(255,255,255,0.3); font-size:0.75rem;
 }
 .footer-names {
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
+  font-family:var(--font-serif); font-size:1.8rem;
+  font-weight:300; font-style:italic; color:var(--gold);
+  margin-bottom:0.4rem;
 }
 
 /* ============================================================
    ADMIN PANEL
    ============================================================ */
 .admin-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(0,0,0,0.6);
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  display:none; position:fixed; inset:0; z-index:2000;
+  background:rgba(0,0,0,0.55); align-items:center; justify-content:center; padding:1rem;
 }
-.admin-overlay.open { display: flex; }
+.admin-overlay.open { display:flex; }
 .admin-box {
-  background: var(--white);
-  border-radius: 14px;
-  padding: 2rem 1.5rem;
-  width: 100%;
-  max-width: 680px;
-  max-height: 88vh;
-  overflow-y: auto;
-  position: relative;
+  background:var(--white); border-radius:14px;
+  padding:2rem 1.5rem; width:100%; max-width:680px;
+  max-height:88vh; overflow-y:auto; position:relative;
 }
-.admin-box h2 {
-  font-family: var(--font-serif);
-  font-size: 1.7rem;
-  color: var(--text);
-  margin-bottom: 1.3rem;
-}
-.admin-close {
-  position: absolute;
-  top: 1rem; right: 1.2rem;
-  background: none; border: none;
-  font-size: 1.5rem; cursor: pointer;
-  color: var(--muted); line-height: 1;
-}
-.admin-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem; }
+.admin-box h2 { font-family:var(--font-serif); font-size:1.7rem; color:var(--dark); margin-bottom:1.2rem; }
+.admin-close { position:absolute; top:1rem; right:1.2rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted); }
+.admin-tabs { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.6rem; }
 .admin-tab {
-  padding: 0.5rem 1rem;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border: 1px solid #ddd;
-  background: var(--white);
-  cursor: pointer;
-  border-radius: 20px;
-  font-family: var(--font-sans);
-  transition: all 0.2s;
+  padding:0.48rem 1rem; font-size:0.65rem; font-weight:500;
+  letter-spacing:1px; text-transform:uppercase;
+  border:1px solid #ddd; background:var(--white);
+  cursor:pointer; border-radius:20px; font-family:var(--font-sans); transition:all 0.2s;
 }
-.admin-tab.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
-.admin-sec { display: none; }
-.admin-sec.active { display: block; }
+.admin-tab.active { background:var(--gold); color:var(--white); border-color:var(--gold); }
+.admin-sec { display:none; }
+.admin-sec.active { display:block; }
+.rsvp-list { list-style:none; }
+.rsvp-list li { padding:0.65rem 0; border-bottom:1px solid #f0f0f0; display:flex; justify-content:space-between; font-size:0.85rem; }
+.yes { color:#276b2e; } .no { color:#c62828; }
 
-/* RSVP list */
-.rsvp-list { list-style: none; }
-.rsvp-list li {
-  padding: 0.7rem 0;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.88rem;
-}
-.yes { color: #276b2e; }
-.no  { color: #c62828; }
-
-/* Guest list / plus-one tab */
-.gl-controls { display: flex; gap: 0.5rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+.gl-controls { display:flex; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap; }
 .gl-controls input {
-  flex: 1; min-width: 160px;
-  padding: 0.6rem 0.9rem;
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  flex:1; min-width:150px; padding:0.6rem 0.9rem;
+  font-family:var(--font-sans); font-size:0.88rem;
+  border:1px solid #ddd; border-radius:8px;
 }
-.gl-controls input:focus { outline: none; border-color: var(--gold); }
+.gl-controls input:focus { outline:none; border-color:var(--gold); }
 .btn-sm {
-  padding: 0.6rem 1.1rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: var(--font-sans);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: var(--charcoal);
-  color: var(--white);
-  transition: background 0.2s;
+  padding:0.58rem 1rem; font-size:0.65rem; font-weight:500;
+  letter-spacing:1px; text-transform:uppercase;
+  font-family:var(--font-sans); border:none; border-radius:8px;
+  cursor:pointer; background:var(--dark); color:var(--white); transition:background 0.2s;
 }
-.btn-sm:hover { background: var(--gold); }
-.btn-sm.danger { background: #c62828; }
-.btn-sm.danger:hover { background: #8e1b1b; }
+.btn-sm:hover { background:var(--gold); }
+.btn-sm.danger { background:#c62828; }
+.btn-sm.danger:hover { background:#8e1b1b; }
 
-.gl-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.gl-table th {
-  text-align: left;
-  padding: 0.45rem 0.6rem;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  border-bottom: 1px solid #eee;
-}
-.gl-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid #f5f5f5; }
-.gl-table tr:last-child td { border-bottom: none; }
+.gl-table { width:100%; border-collapse:collapse; font-size:0.84rem; }
+.gl-table th { text-align:left; padding:0.4rem 0.6rem; font-size:0.58rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); border-bottom:1px solid #eee; }
+.gl-table td { padding:0.55rem 0.6rem; border-bottom:1px solid #f5f5f5; }
+.gl-table tr:last-child td { border-bottom:none; }
 
-/* Toggle switch */
 .toggle {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 38px; height: 21px;
-  background: #ddd;
-  border-radius: 21px;
-  cursor: pointer;
-  position: relative;
-  transition: background 0.2s;
-  flex-shrink: 0;
-  vertical-align: middle;
+  appearance:none; -webkit-appearance:none;
+  width:36px; height:20px; background:#ddd; border-radius:20px;
+  cursor:pointer; position:relative; transition:background 0.2s; vertical-align:middle;
 }
 .toggle::after {
-  content: '';
-  position: absolute;
-  top: 3px; left: 3px;
-  width: 15px; height: 15px;
-  background: white;
-  border-radius: 50%;
-  transition: left 0.2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  content:''; position:absolute; top:3px; left:3px;
+  width:14px; height:14px; background:white; border-radius:50%;
+  transition:left 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.2);
 }
-.toggle:checked { background: var(--gold); }
-.toggle:checked::after { left: 20px; }
+.toggle:checked { background:var(--gold); }
+.toggle:checked::after { left:19px; }
 
-/* Messaging */
-.msg-radios { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-.msg-radios label { font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
+.msg-radios { display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; }
+.msg-radios label { font-size:0.84rem; display:flex; align-items:center; gap:0.4rem; cursor:pointer; }
 
 /* ============================================================
-   FADE-IN ANIMATION
+   FADE-IN
    ============================================================ */
-.fade {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-.fade.in { opacity: 1; transform: none; }
+.fade { opacity:0; transform:translateY(14px); transition:opacity 0.55s ease, transform 0.55s ease; }
+.fade.in { opacity:1; transform:none; }
 
 </style>
 </head>
 <body>
 
 <!-- ============================================================
-     HERO
+     TOP NAV
      ============================================================ -->
-<section class="hero" id="home" onclick="heroClick()" aria-label="Click to explore">
-  <div class="hero-inner">
-    <p class="hero-tagline">
-      Us <span class="dot">·</span> You <span class="dot">·</span> Food <span class="dot">·</span> Booze
-    </p>
-    <h1>Po <em>&</em> Jeanine</h1>
-    <div class="hero-line"></div>
-    <p class="hero-meta">Sunday · August 23 · 2026</p>
-    <p class="hero-venue">The Great American Beer Hall &middot; Malden, MA</p>
-    <div class="countdown" id="countdown">
-      <div class="cd-item"><span class="cd-num" id="cd-d">---</span><span class="cd-label">Days</span></div>
-      <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-label">Hours</span></div>
-      <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-label">Mins</span></div>
-      <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-label">Secs</span></div>
+<header class="top-nav">
+  <a class="nav-brand" href="#home">Jeanine &amp; Po</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+    <li><a href="#where-to-stay">Where to Stay</a></li>
+    <li><a href="#registry">Registry</a></li>
+  </ul>
+  <button class="nav-burger" onclick="openDrawer()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============================================================
+     SLIDE-OUT DRAWER (mobile)
+     ============================================================ -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<nav class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">&times;</button>
+  <span class="drawer-brand">Jeanine &amp; Po</span>
+  <ul class="drawer-nav">
+    <li><a href="#home"          onclick="closeDrawer()">Home</a></li>
+    <li><a href="#our-story"     onclick="closeDrawer()">Our Story</a></li>
+    <li><a href="#details"       onclick="closeDrawer()">Details</a></li>
+    <li><a href="#where-to-stay" onclick="closeDrawer()">Where to Stay</a></li>
+    <li><a href="#registry"      onclick="closeDrawer()">Registry</a></li>
+    <li><a href="#announcements" onclick="closeDrawer()">Updates</a></li>
+  </ul>
+  <a class="drawer-rsvp" href="#rsvp" onclick="closeDrawer()">RSVP</a>
+</nav>
+
+<!-- ============================================================
+     HERO — bright white brick, left-aligned, outlined text
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-names">Jeanine &amp; Po</p>
+    <ul class="hero-words" aria-label="Us, You, Food, Booze">
+      <li>Us</li>
+      <li>You</li>
+      <li>Food</li>
+      <li>Booze</li>
+    </ul>
+    <div class="hero-meta">
+      <span class="hero-meta-line">Sunday · August 23, 2026</span>
+      <span class="hero-meta-line">The Great American Beer Hall · Malden, MA</span>
     </div>
   </div>
-  <div class="hero-hint">
-    <span>tap to explore</span>
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M7 2v10M2 8l5 5 5-5"/>
+  <div class="hero-hint" onclick="document.getElementById('our-story').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2v8M2 7l4 4 4-4"/>
     </svg>
   </div>
 </section>
@@ -656,8 +662,8 @@ footer {
 <!-- ============================================================
      OUR STORY
      ============================================================ -->
-<div class="card" id="our-story">
-  <div class="card-inner">
+<div class="section-card" id="our-story">
+  <div class="sec-inner">
     <div class="fade">
       <p class="sec-label">Our Journey</p>
       <h2 class="sec-title">How It All Began</h2>
@@ -675,65 +681,36 @@ footer {
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <!-- Fork -->
-  <svg width="18" height="34" viewBox="0 0 18 34" fill="none">
-    <line x1="3" y1="2" x2="3" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="9" y1="2" x2="9" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="15" y1="2" x2="15" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <path d="M3 12 Q3 17 9 17 Q15 17 15 12" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <line x1="9" y1="17" x2="9" y2="32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
-  <!-- Beer mug -->
-  <svg width="26" height="34" viewBox="0 0 26 34" fill="none">
-    <rect x="2" y="4" width="16" height="26" rx="2" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <path d="M18 10 Q24 12 24 17 Q24 22 18 24" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <rect x="4" y="4" width="12" height="6" rx="1" fill="#C4A35A" fill-opacity="0.15"/>
-  </svg>
-  <!-- Knife -->
-  <svg width="12" height="34" viewBox="0 0 12 34" fill="none">
-    <path d="M6 2 C6 2 10 7 10 13 L6 17 L6 32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <line x1="6" y1="17" x2="2" y2="13" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#b8975a" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#b8975a" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#b8975a" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
      DETAILS
      ============================================================ -->
-<div class="card cream" id="details">
-  <div class="card-inner">
+<div class="section-card cream" id="details">
+  <div class="sec-inner">
     <div class="fade">
       <p class="sec-label">The Details</p>
       <h2 class="sec-title">When &amp; Where</h2>
       <div class="sec-rule"></div>
     </div>
-    <div class="details-grid">
-      <div class="detail-tile fade">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="28" rx="2" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <line x1="4" y1="16" x2="36" y2="16" stroke="var(--gold)" stroke-width="1.3"/>
-          <line x1="12" y1="4" x2="12" y2="12" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round"/>
-          <line x1="28" y1="4" x2="28" y2="12" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round"/>
-          <text x="20" y="30" text-anchor="middle" font-family="Cormorant Garamond" font-size="11" fill="var(--gold)">23</text>
-        </svg>
+    <div class="tiles">
+      <div class="tile fade">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="3" y="7" width="32" height="27" rx="2" stroke="var(--gold)" stroke-width="1.3" fill="none"/><line x1="3" y1="15" x2="35" y2="15" stroke="var(--gold)" stroke-width="1.3"/><line x1="11" y1="3" x2="11" y2="11" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round"/><line x1="27" y1="3" x2="27" y2="11" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round"/><text x="19" y="28" text-anchor="middle" font-family="Cormorant Garamond" font-size="11" fill="var(--gold)">23</text></svg>
         <h3>The Date</h3>
         <p>Sunday, August 23, 2026<br>Ceremony at 4:00 PM<br>Reception to follow</p>
       </div>
-      <div class="detail-tile fade">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <path d="M20 3C13.4 3 8 8.4 8 15C8 23 20 37 20 37C20 37 32 23 32 15C32 8.4 26.6 3 20 3Z" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <circle cx="20" cy="15" r="4" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-        </svg>
+      <div class="tile fade">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 3C13 3 8 8 8 14C8 22 19 35 19 35C19 35 30 22 30 14C30 8 25 3 19 3Z" stroke="var(--gold)" stroke-width="1.3" fill="none"/><circle cx="19" cy="14" r="4" stroke="var(--gold)" stroke-width="1.3" fill="none"/></svg>
         <h3>The Venue</h3>
-        <p>The Great American<br>Beer Hall<br>Malden, Massachusetts</p>
+        <p>The Great American Beer Hall<br>Malden, Massachusetts</p>
       </div>
-      <div class="detail-tile fade">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="8" y="7" width="16" height="24" rx="2" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <path d="M24 13 Q32 15 32 20 Q32 25 24 27" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <rect x="10" y="7" width="12" height="6" rx="1" fill="var(--gold)" fill-opacity="0.12"/>
-        </svg>
+      <div class="tile fade">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="8" y="7" width="14" height="22" rx="2" stroke="var(--gold)" stroke-width="1.3" fill="none"/><path d="M22 12 Q29 14 29 19 Q29 24 22 26" stroke="var(--gold)" stroke-width="1.3" fill="none"/><rect x="10" y="7" width="10" height="5" rx="1" fill="var(--gold)" fill-opacity="0.13"/></svg>
         <h3>The Feast</h3>
-        <p>Craft beer &amp; curated bites<br>Dinner, drinks &amp; dancing<br>Celebrating what we love</p>
+        <p>Craft beer &amp; curated bites<br>Dinner, drinks &amp; dancing</p>
       </div>
     </div>
   </div>
@@ -741,28 +718,99 @@ footer {
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="34" viewBox="0 0 16 34" fill="none">
-    <path d="M2 2 L14 2 L10 15 Q8 18 8 32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <line x1="4" y1="32" x2="12" y2="32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
-  <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-    <ellipse cx="17" cy="24" rx="13" ry="4" stroke="#C4A35A" stroke-width="1" opacity="0.3" fill="none"/>
-    <ellipse cx="17" cy="19" rx="12" ry="9" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <path d="M12 12 Q12 7 12 3" stroke="#C4A35A" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5"/>
-    <path d="M17 10 Q17 5 17 2" stroke="#C4A35A" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5"/>
-    <path d="M22 12 Q22 7 22 3" stroke="#C4A35A" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5"/>
-  </svg>
-  <svg width="16" height="34" viewBox="0 0 16 34" fill="none">
-    <path d="M14 2 L2 2 L6 15 Q8 18 8 32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <line x1="4" y1="32" x2="12" y2="32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
+  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M2 2 L12 2 L9 13 Q7 17 7 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="30" height="32" viewBox="0 0 30 32" fill="none"><ellipse cx="15" cy="22" rx="11" ry="3.5" stroke="#b8975a" stroke-width="1" opacity="0.3" fill="none"/><ellipse cx="15" cy="18" rx="10" ry="8" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M10 11 Q10 7 10 3" stroke="#b8975a" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M15 9 Q15 5 15 2" stroke="#b8975a" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M20 11 Q20 7 20 3" stroke="#b8975a" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
+  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M12 2 L2 2 L5 13 Q7 17 7 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+</div>
+
+<!-- ============================================================
+     WHERE TO STAY
+     ============================================================ -->
+<div class="section-card" id="where-to-stay">
+  <div class="sec-inner">
+    <div class="fade">
+      <p class="sec-label">Accommodations</p>
+      <h2 class="sec-title">Where to Stay</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.8rem;">
+        We recommend the following hotels near the venue. Please book early!
+      </p>
+    </div>
+    <div class="hotel-list">
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>The Malden Hotel</h4>
+          <p>0.5 mi from venue &nbsp;·&nbsp; Use code <strong>POJEANINE</strong> for a discount</p>
+        </div>
+        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+      </div>
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>Marriott Boston Peabody</h4>
+          <p>5 mi from venue &nbsp;·&nbsp; Free shuttle available</p>
+        </div>
+        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+      </div>
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>Hampton Inn &amp; Suites Boston</h4>
+          <p>4 mi from venue &nbsp;·&nbsp; Complimentary breakfast</p>
+        </div>
+        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- brick strip -->
+<div class="food-strip" aria-hidden="true">
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#b8975a" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#b8975a" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#b8975a" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+</div>
+
+<!-- ============================================================
+     REGISTRY
+     ============================================================ -->
+<div class="section-card cream" id="registry">
+  <div class="sec-inner">
+    <div class="fade">
+      <p class="sec-label">Gifts</p>
+      <h2 class="sec-title">Registry</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.8rem;">
+        Your presence is the greatest gift. If you'd like to celebrate us with a little something, we're registered at the following:
+      </p>
+    </div>
+    <div class="registry-links">
+      <a class="registry-btn fade" href="#" onclick="return false;">
+        <span>Amazon Registry</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a class="registry-btn fade" href="#" onclick="return false;">
+        <span>Zola Registry</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a class="registry-btn fade" href="#" onclick="return false;">
+        <span>Honeymoon Fund</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- brick strip -->
+<div class="food-strip" aria-hidden="true">
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#b8975a" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#b8975a" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#b8975a" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
      ANNOUNCEMENTS
      ============================================================ -->
-<div class="card" id="announcements">
-  <div class="card-inner">
+<div class="section-card" id="announcements">
+  <div class="sec-inner">
     <div class="fade">
       <p class="sec-label">Latest News</p>
       <h2 class="sec-title">Announcements</h2>
@@ -777,7 +825,7 @@ footer {
       <div class="ann-item fade">
         <p class="ann-date">March 26, 2026</p>
         <h3>Save the Date</h3>
-        <p>Mark your calendars for Sunday, August 23, 2026. Formal invitations will follow soon. We can't wait to celebrate with you!</p>
+        <p>Mark your calendars for Sunday, August 23, 2026. Formal invitations will follow. We can't wait to celebrate with you!</p>
       </div>
     </div>
   </div>
@@ -785,29 +833,16 @@ footer {
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="18" height="34" viewBox="0 0 18 34" fill="none">
-    <line x1="3" y1="2" x2="3" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="9" y1="2" x2="9" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="15" y1="2" x2="15" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <path d="M3 12 Q3 17 9 17 Q15 17 15 12" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <line x1="9" y1="17" x2="9" y2="32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
-  <svg width="26" height="34" viewBox="0 0 26 34" fill="none">
-    <rect x="2" y="4" width="16" height="26" rx="2" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <path d="M18 10 Q24 12 24 17 Q24 22 18 24" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <rect x="4" y="4" width="12" height="6" rx="1" fill="#C4A35A" fill-opacity="0.15"/>
-  </svg>
-  <svg width="12" height="34" viewBox="0 0 12 34" fill="none">
-    <path d="M6 2 C6 2 10 7 10 13 L6 17 L6 32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <line x1="6" y1="17" x2="2" y2="13" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#b8975a" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#b8975a" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#b8975a" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
-     CELEBRATE — dark
+     CELEBRATE
      ============================================================ -->
-<div class="card dark" id="celebrate">
-  <div class="card-inner">
+<div class="section-card dark" id="celebrate">
+  <div class="sec-inner">
     <div class="fade">
       <p class="sec-label">What Awaits</p>
       <h2 class="sec-title">An Evening of Joy</h2>
@@ -815,47 +850,17 @@ footer {
     </div>
     <div class="foodie-grid">
       <div class="foodie-item fade">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <rect x="16" y="20" width="28" height="42" rx="3" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M44 30 Q58 32 58 40 Q58 48 44 50" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <rect x="19" y="20" width="22" height="10" rx="2" fill="var(--gold)" fill-opacity="0.12"/>
-          <circle cx="25" cy="25" r="2" fill="var(--gold)" fill-opacity="0.3"/>
-          <circle cx="33" cy="24" r="1.5" fill="var(--gold)" fill-opacity="0.25"/>
-          <circle cx="40" cy="25" r="1.2" fill="var(--gold)" fill-opacity="0.3"/>
-        </svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="13" y="17" width="26" height="38" rx="3" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M39 23 Q52 25 52 34 Q52 43 39 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><rect x="16" y="17" width="20" height="9" rx="2" fill="#d4bc7c" fill-opacity="0.12"/><circle cx="22" cy="22" r="1.8" fill="#d4bc7c" fill-opacity="0.3"/><circle cx="30" cy="21" r="1.4" fill="#d4bc7c" fill-opacity="0.25"/></svg>
         <h3>Craft Brews</h3>
         <p>Cold pints and local favorites at the Beer Hall bar</p>
       </div>
       <div class="foodie-item fade">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="52" rx="24" ry="7" stroke="var(--gold)" stroke-width="1" opacity="0.2" fill="none"/>
-          <ellipse cx="40" cy="46" rx="22" ry="16" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <ellipse cx="40" cy="46" rx="14" ry="10" stroke="var(--gold)" stroke-width="0.7" fill="none" opacity="0.35"/>
-          <path d="M29 30 Q29 23 29 16" stroke="var(--gold-light)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5">
-            <animate attributeName="d" values="M29 30 Q30 23 29 16;M29 30 Q28 23 29 16;M29 30 Q30 23 29 16" dur="3s" repeatCount="indefinite"/>
-          </path>
-          <path d="M40 28 Q40 21 40 14" stroke="var(--gold-light)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5">
-            <animate attributeName="d" values="M40 28 Q41 21 40 14;M40 28 Q39 21 40 14;M40 28 Q41 21 40 14" dur="2.5s" repeatCount="indefinite"/>
-          </path>
-          <path d="M51 30 Q51 23 51 16" stroke="var(--gold-light)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5">
-            <animate attributeName="d" values="M51 30 Q52 23 51 16;M51 30 Q50 23 51 16;M51 30 Q52 23 51 16" dur="3.5s" repeatCount="indefinite"/>
-          </path>
-        </svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="46" rx="20" ry="6" stroke="#d4bc7c" stroke-width="1" opacity="0.2" fill="none"/><ellipse cx="36" cy="40" rx="18" ry="13" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M26 28 Q26 21 26 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M26 28 Q27 21 26 14;M26 28 Q25 21 26 14;M26 28 Q27 21 26 14" dur="3s" repeatCount="indefinite"/></path><path d="M36 26 Q36 19 36 12" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M36 26 Q37 19 36 12;M36 26 Q35 19 36 12;M36 26 Q37 19 36 12" dur="2.5s" repeatCount="indefinite"/></path><path d="M46 28 Q46 21 46 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M46 28 Q47 21 46 14;M46 28 Q45 21 46 14;M46 28 Q47 21 46 14" dur="3.5s" repeatCount="indefinite"/></path></svg>
         <h3>The Feast</h3>
         <p>Curated bites and bold flavors worth celebrating</p>
       </div>
       <div class="foodie-item fade">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <circle cx="26" cy="34" r="8" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M17 52 Q17 42 26 42 Q35 42 35 52" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <circle cx="54" cy="34" r="8" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M45 52 Q45 42 54 42 Q63 42 63 52" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <line x1="35" y1="45" x2="40" y2="28" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/>
-          <line x1="45" y1="45" x2="40" y2="28" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/>
-          <path d="M40 16 L41 13 L42 16 L45 17 L42 18 L41 21 L40 18 L37 17 Z" fill="var(--gold)" opacity="0.6">
-            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-          </path>
-        </svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="24" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M15 46 Q15 38 24 38 Q33 38 33 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><circle cx="48" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M39 46 Q39 38 48 38 Q57 38 57 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><line x1="33" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><line x1="39" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><path d="M36 14 L37 11 L38 14 L41 15 L38 16 L37 19 L36 16 L33 15 Z" fill="#d4bc7c" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/></path></svg>
         <h3>Good People</h3>
         <p>Everyone we love, all in one room</p>
       </div>
@@ -865,34 +870,21 @@ footer {
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="18" height="34" viewBox="0 0 18 34" fill="none">
-    <line x1="3" y1="2" x2="3" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="9" y1="2" x2="9" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <line x1="15" y1="2" x2="15" y2="12" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-    <path d="M3 12 Q3 17 9 17 Q15 17 15 12" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <line x1="9" y1="17" x2="9" y2="32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
-  <svg width="26" height="34" viewBox="0 0 26 34" fill="none">
-    <rect x="2" y="4" width="16" height="26" rx="2" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <path d="M18 10 Q24 12 24 17 Q24 22 18 24" stroke="#C4A35A" stroke-width="1.3" fill="none"/>
-    <rect x="4" y="4" width="12" height="6" rx="1" fill="#C4A35A" fill-opacity="0.15"/>
-  </svg>
-  <svg width="12" height="34" viewBox="0 0 12 34" fill="none">
-    <path d="M6 2 C6 2 10 7 10 13 L6 17 L6 32" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <line x1="6" y1="17" x2="2" y2="13" stroke="#C4A35A" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#b8975a" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#b8975a" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#b8975a" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#b8975a" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#b8975a" stroke-width="1.2" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
      RSVP
      ============================================================ -->
-<div class="card cream" id="rsvp">
-  <div class="card-inner" style="text-align:center;">
+<div class="section-card cream" id="rsvp">
+  <div class="sec-inner" style="text-align:center;">
     <div class="fade">
       <p class="sec-label">Respond</p>
       <h2 class="sec-title">RSVP</h2>
       <div class="sec-rule"></div>
-      <p style="color:var(--muted);margin-bottom:2rem;font-size:0.9rem;">
+      <p style="color:var(--muted);margin-bottom:2rem;font-size:0.88rem;">
         Please reply by <strong>July 1, 2026</strong>.
       </p>
     </div>
@@ -924,9 +916,7 @@ footer {
           <option value="2">Me + 1 guest</option>
         </select>
       </div>
-      <p class="plus-one-note" id="plusNote">
-        Your invitation is for one guest only. Questions? Contact Po &amp; Jeanine directly.
-      </p>
+      <p class="plus-note" id="plusNote">Your invitation is for one guest only. Questions? Contact Po &amp; Jeanine.</p>
       <div class="form-group">
         <label for="dietary">Dietary Restrictions</label>
         <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, allergies, etc.">
@@ -935,7 +925,7 @@ footer {
         <label for="message">A Note for Po &amp; Jeanine (optional)</label>
         <textarea id="message" name="message" placeholder="A wish, memory, or song request..."></textarea>
       </div>
-      <button type="submit" class="btn" id="rsvpBtn">Send RSVP</button>
+      <button type="submit" class="btn-submit" id="rsvpBtn">Send RSVP</button>
       <div class="form-msg" id="formMsg"></div>
     </form>
   </div>
@@ -945,44 +935,9 @@ footer {
      FOOTER
      ============================================================ -->
 <footer>
-  <p class="footer-names">P <em style="font-style:italic;">&</em> J</p>
+  <p class="footer-names">Jeanine &amp; Po</p>
   <p>August 23, 2026 &middot; Malden, MA</p>
 </footer>
-
-<!-- ============================================================
-     BOTTOM NAV — mobile only
-     ============================================================ -->
-<nav class="bottom-nav" id="bottomNav" aria-label="Page navigation">
-  <a href="#home" class="active" onclick="setActiveNav(this)">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 9.5L11 3l8 6.5V19a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
-      <path d="M8 20v-8h6v8"/>
-    </svg>
-    Home
-  </a>
-  <a href="#our-story" onclick="setActiveNav(this)">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L11 6.67l-2.06-2.06a5.5 5.5 0 00-7.78 7.78l2.06 2.06L11 21.23l7.78-7.78 2.06-2.06a5.5 5.5 0 000-6.78z"/>
-    </svg>
-    Story
-  </a>
-  <a href="#details" onclick="setActiveNav(this)">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="4" width="16" height="16" rx="2"/>
-      <line x1="3" y1="9" x2="19" y2="9"/>
-      <line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="14" y1="2" x2="14" y2="6"/>
-    </svg>
-    Details
-  </a>
-  <a href="#rsvp" onclick="setActiveNav(this)">
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </svg>
-    RSVP
-  </a>
-</nav>
 
 <!-- ============================================================
      ADMIN PANEL
@@ -997,77 +952,45 @@ footer {
       <button class="admin-tab" onclick="switchTab('messaging',this)">Messaging</button>
       <button class="admin-tab" onclick="switchTab('announce',this)">Announcements</button>
     </div>
-
-    <!-- RSVPs -->
     <div class="admin-sec active" id="tab-rsvps">
-      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">
         <strong id="rsvpCount">0</strong> responses &nbsp;·&nbsp;
         <strong id="attendingCount">0</strong> attending &nbsp;·&nbsp;
         <strong id="decliningCount">0</strong> declining
       </p>
       <ul class="rsvp-list" id="rsvpList"></ul>
     </div>
-
-    <!-- Plus-One -->
     <div class="admin-sec" id="tab-plus-one">
-      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
-        Add each guest by name and toggle whether they can bring a plus one.
-        The RSVP form checks the name automatically.
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">
+        Add guests and toggle their plus-one permission. The RSVP form checks this automatically by name.
       </p>
       <div class="gl-controls">
-        <input type="text" id="newGuest" placeholder="Guest full name"
-          onkeydown="if(event.key==='Enter'){event.preventDefault();addGuest();}">
-        <button class="btn-sm" onclick="addGuest()">Add Guest</button>
+        <input type="text" id="newGuest" placeholder="Guest full name" onkeydown="if(event.key==='Enter'){event.preventDefault();addGuest();}">
+        <button class="btn-sm" onclick="addGuest()">Add</button>
       </div>
       <table class="gl-table">
         <thead><tr><th>Name</th><th>Plus One</th><th></th></tr></thead>
         <tbody id="guestBody"></tbody>
       </table>
-      <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;">
-        Guests not on this list will see a solo-only note when they RSVP.
-      </p>
+      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.8rem;">Guests not on this list see a solo-only note.</p>
     </div>
-
-    <!-- Messaging -->
     <div class="admin-sec" id="tab-messaging">
-      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
-        Requires backend configuration (see setup guide).
-      </p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">Requires backend configuration (see setup guide).</p>
       <div class="msg-radios">
         <label><input type="radio" name="msgTo" value="all" checked> All guests</label>
         <label><input type="radio" name="msgTo" value="attending"> Attending only</label>
         <label><input type="radio" name="msgTo" value="not-responded"> Not responded</label>
       </div>
-      <div class="form-group">
-        <label>Type</label>
-        <select id="msgType"><option>Email</option><option>SMS</option><option>Both</option></select>
-      </div>
-      <div class="form-group">
-        <label>Subject</label>
-        <input type="text" id="msgSubject" placeholder="Update from Po &amp; Jeanine">
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea id="msgBody" placeholder="Write your message..."></textarea>
-      </div>
-      <button class="btn secondary" onclick="sendMsg()">Send Message</button>
+      <div class="form-group"><label>Subject</label><input type="text" id="msgSubject" placeholder="Update from Po &amp; Jeanine"></div>
+      <div class="form-group"><label>Message</label><textarea id="msgBody" placeholder="Write your message..."></textarea></div>
+      <button class="btn-submit" onclick="sendMsg()">Send Message</button>
       <div class="form-msg" id="msgStatus" style="margin-top:1rem;"></div>
     </div>
-
-    <!-- Announcements -->
     <div class="admin-sec" id="tab-announce">
-      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">
-        Post a new announcement to the website.
-      </p>
-      <div class="form-group">
-        <label>Title</label>
-        <input type="text" id="annTitle" placeholder="Announcement title">
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea id="annBody" placeholder="Details..."></textarea>
-      </div>
-      <button class="btn secondary" onclick="postAnn()">Post Announcement</button>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem;">Post a new announcement to the website.</p>
+      <div class="form-group"><label>Title</label><input type="text" id="annTitle" placeholder="Title"></div>
+      <div class="form-group"><label>Message</label><textarea id="annBody" placeholder="Details..."></textarea></div>
+      <button class="btn-submit" onclick="postAnn()">Post Announcement</button>
     </div>
   </div>
 </div>
@@ -1076,232 +999,123 @@ footer {
      JAVASCRIPT
      ============================================================ -->
 <script>
-/* ── Config ───────────────────────────────────────────── */
-const FIREBASE_CONFIG = {
-  apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT.firebaseapp.com",
-  projectId:"YOUR_PROJECT_ID",storageBucket:"YOUR_PROJECT.appspot.com",
-  messagingSenderId:"YOUR_SENDER_ID",appId:"YOUR_APP_ID"
-};
+/* Config */
 const ADMIN_PW = "poAndJeanine2026";
 const MSG_API  = "";
 let db = null, useLS = true;
 
-/* ── Hero click ───────────────────────────────────────── */
-function heroClick() {
-  document.getElementById('our-story').scrollIntoView({ behavior:'smooth' });
-}
+/* Drawer */
+function openDrawer()  { document.getElementById('drawer').classList.add('open'); document.getElementById('drawerOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeDrawer() { document.getElementById('drawer').classList.remove('open'); document.getElementById('drawerOverlay').classList.remove('open'); document.body.style.overflow=''; }
 
-/* ── Bottom nav active state ──────────────────────────── */
-function setActiveNav(el) {
-  document.querySelectorAll('.bottom-nav a').forEach(a => a.classList.remove('active'));
-  el.classList.add('active');
-}
-// auto-update active nav on scroll
-const sections = ['home','our-story','details','celebrate','rsvp'];
-window.addEventListener('scroll', () => {
-  const y = window.scrollY + window.innerHeight / 2;
-  let active = 'home';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop <= y) active = id;
-  });
-  const map = { 'home':'#home','our-story':'#our-story','details':'#details','celebrate':'#details','rsvp':'#rsvp' };
-  document.querySelectorAll('.bottom-nav a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === (map[active] || '#home'));
-  });
-}, { passive: true });
-
-/* ── Local storage ────────────────────────────────────── */
-function getRSVPs()    { try { return JSON.parse(localStorage.getItem('w_rsvps')||'[]'); } catch { return []; } }
+/* Storage */
+function getRSVPs()    { try{return JSON.parse(localStorage.getItem('w_rsvps')||'[]');}catch{return[];} }
 function saveRSVP(d)   { const r=getRSVPs(); r.push({...d,ts:new Date().toISOString()}); localStorage.setItem('w_rsvps',JSON.stringify(r)); }
-function getGuests()   { try { return JSON.parse(localStorage.getItem('w_guests')||'[]'); } catch { return []; } }
+function getGuests()   { try{return JSON.parse(localStorage.getItem('w_guests')||'[]');}catch{return[];} }
 function saveGuests(l) { localStorage.setItem('w_guests',JSON.stringify(l)); }
 
-/* ── Plus-one check ───────────────────────────────────── */
-function guestOnList(n)    { const l=getGuests(),k=n.trim().toLowerCase(); return l.find(g=>g.name.toLowerCase()===k); }
-function hasPlusOne(n)     { const g=guestOnList(n); return g ? g.plus : false; }
-
+/* Plus-one */
+function guestEntry(n)  { const l=getGuests(),k=n.trim().toLowerCase(); return l.find(g=>g.name.toLowerCase()===k); }
+function hasPlusOne(n)  { const g=guestEntry(n); return g?g.plus:false; }
 function checkPlus() {
-  const name = document.getElementById('guestName').value;
-  const att  = document.getElementById('attending').value;
-  const grp  = document.getElementById('plusGroup');
-  const note = document.getElementById('plusNote');
-  grp.style.display = 'none';
-  note.style.display = 'none';
-  if (att !== 'yes' || !name.trim()) return;
-  const g = guestOnList(name);
-  if (!g) return; // not on list — no note shown, no plus-one field
-  if (g.plus) { grp.style.display = 'block'; }
-  else        { note.style.display = 'block'; }
+  const name=document.getElementById('guestName').value;
+  const att=document.getElementById('attending').value;
+  const grp=document.getElementById('plusGroup');
+  const note=document.getElementById('plusNote');
+  grp.style.display='none'; note.style.display='none';
+  if(att!=='yes'||!name.trim()) return;
+  const g=guestEntry(name);
+  if(!g) return;
+  if(g.plus) grp.style.display='block';
+  else note.style.display='block';
 }
 
-/* ── RSVP submit ──────────────────────────────────────── */
+/* RSVP */
 async function submitRSVP(e) {
   e.preventDefault();
-  const btn = document.getElementById('rsvpBtn');
-  const msg = document.getElementById('formMsg');
-  btn.disabled = true; btn.textContent = 'Sending...';
-
-  const att   = document.getElementById('attending').value;
-  const name  = document.getElementById('guestName').value.trim();
-  const plusOk = hasPlusOne(name) && document.getElementById('plusGroup').style.display !== 'none';
-  const data  = {
-    name, email: document.getElementById('guestEmail').value.trim(),
-    phone: document.getElementById('guestPhone').value.trim(),
-    attending: att,
-    guestCount: (att==='yes' && plusOk) ? parseInt(document.getElementById('guestCount').value) : 1,
-    dietary: document.getElementById('dietary').value.trim(),
-    message: document.getElementById('message').value.trim()
-  };
-
+  const btn=document.getElementById('rsvpBtn');
+  const msg=document.getElementById('formMsg');
+  btn.disabled=true; btn.textContent='Sending...';
+  const att=document.getElementById('attending').value;
+  const name=document.getElementById('guestName').value.trim();
+  const plusOk=hasPlusOne(name)&&document.getElementById('plusGroup').style.display!=='none';
+  const data={name,email:document.getElementById('guestEmail').value.trim(),phone:document.getElementById('guestPhone').value.trim(),attending:att,guestCount:(att==='yes'&&plusOk)?parseInt(document.getElementById('guestCount').value):1,dietary:document.getElementById('dietary').value.trim(),message:document.getElementById('message').value.trim()};
   try {
-    if (!useLS && db) await window._fb.addDoc(window._fb.collection(db,'rsvps'),{...data,ts:new Date()});
-    else saveRSVP(data);
+    saveRSVP(data);
     msg.className='form-msg ok';
-    msg.textContent = att==='yes'
-      ? `Thank you, ${data.name}! We can't wait to celebrate with you!`
-      : `Thank you, ${data.name}. We'll miss you and hope to see you soon!`;
-    e.target.reset();
-    document.getElementById('plusGroup').style.display='none';
-    document.getElementById('plusNote').style.display='none';
-  } catch(err) {
-    msg.className='form-msg err';
-    msg.textContent='Something went wrong. Please try again.';
-  }
+    msg.textContent=att==='yes'?`Thank you, ${data.name}! We can't wait to celebrate with you!`:`Thank you, ${data.name}. We'll miss you!`;
+    e.target.reset(); document.getElementById('plusGroup').style.display='none'; document.getElementById('plusNote').style.display='none';
+  } catch { msg.className='form-msg err'; msg.textContent='Something went wrong. Please try again.'; }
   btn.disabled=false; btn.textContent='Send RSVP';
 }
 
-/* ── Admin open / close ───────────────────────────────── */
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey && e.shiftKey && e.key==='A') {
-    const pw = prompt('Admin password:');
-    if (pw===ADMIN_PW) { openAdmin(); }
-  }
+/* Admin */
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&e.shiftKey&&e.key==='A'){ const pw=prompt('Admin password:'); if(pw===ADMIN_PW) openAdmin(); }
 });
-// tap footer P&J 5 times fast → admin (mobile shortcut)
-let tapCount=0, tapTimer;
-document.querySelector('.footer-names').addEventListener('click', () => {
-  tapCount++; clearTimeout(tapTimer);
-  tapTimer = setTimeout(()=>tapCount=0, 2000);
-  if (tapCount>=5) { tapCount=0; const pw=prompt('Admin password:'); if(pw===ADMIN_PW) openAdmin(); }
+// Mobile: tap footer names 5× fast
+let tc=0,tt;
+document.querySelector('.footer-names').addEventListener('click',()=>{
+  tc++; clearTimeout(tt); tt=setTimeout(()=>tc=0,2000);
+  if(tc>=5){tc=0;const pw=prompt('Admin password:');if(pw===ADMIN_PW)openAdmin();}
 });
 
 function openAdmin()  { document.getElementById('adminOverlay').classList.add('open'); loadRSVPs(); renderGuests(); }
 function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); }
-
-function switchTab(id, btn) {
+function switchTab(id,btn){
   document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  btn.classList.add('active');
-  if (id==='rsvps') loadRSVPs();
-  if (id==='plus-one') renderGuests();
+  document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active');
+  if(id==='rsvps') loadRSVPs(); if(id==='plus-one') renderGuests();
 }
 
-/* ── RSVP list ────────────────────────────────────────── */
-async function loadRSVPs() {
-  let rsvps = [];
-  if (!useLS && db) {
-    const snap = await window._fb.getDocs(window._fb.query(window._fb.collection(db,'rsvps'),window._fb.orderBy('ts','desc')));
-    snap.forEach(d=>rsvps.push(d.data()));
-  } else rsvps = getRSVPs().reverse();
-  document.getElementById('rsvpCount').textContent    = rsvps.length;
-  document.getElementById('attendingCount').textContent = rsvps.filter(r=>r.attending==='yes').length;
-  document.getElementById('decliningCount').textContent = rsvps.filter(r=>r.attending==='no').length;
-  document.getElementById('rsvpList').innerHTML = rsvps.map(r=>`
-    <li>
-      <span><strong>${esc(r.name)}</strong>${r.guestCount>1?' <em>(+1)</em>':''}</span>
-      <span class="${r.attending==='yes'?'yes':'no'}">${r.attending==='yes'?'Attending':'Declined'}</span>
-    </li>`).join('') || '<li style="color:var(--muted);font-size:0.85rem;">No RSVPs yet.</li>';
+function loadRSVPs(){
+  const rsvps=getRSVPs().reverse();
+  document.getElementById('rsvpCount').textContent=rsvps.length;
+  document.getElementById('attendingCount').textContent=rsvps.filter(r=>r.attending==='yes').length;
+  document.getElementById('decliningCount').textContent=rsvps.filter(r=>r.attending==='no').length;
+  document.getElementById('rsvpList').innerHTML=rsvps.map(r=>`<li><span><strong>${esc(r.name)}</strong>${r.guestCount>1?' <em>(+1)</em>':''}</span><span class="${r.attending==='yes'?'yes':'no'}">${r.attending==='yes'?'Attending':'Declined'}</span></li>`).join('')||'<li style="color:var(--muted);font-size:0.85rem;">No RSVPs yet.</li>';
 }
 
-/* ── Guest / plus-one list ────────────────────────────── */
-function renderGuests() {
-  const list = getGuests();
-  document.getElementById('guestBody').innerHTML = list.map((g,i)=>`
-    <tr>
-      <td>${esc(g.name)}</td>
-      <td><input type="checkbox" class="toggle" ${g.plus?'checked':''} onchange="togglePlus(${i},this.checked)"></td>
-      <td><button class="btn-sm danger" onclick="removeGuest(${i})">Remove</button></td>
-    </tr>`).join('') || '<tr><td colspan="3" style="color:var(--muted);padding:1rem 0;font-size:0.85rem;">No guests added yet.</td></tr>';
+function renderGuests(){
+  const list=getGuests();
+  document.getElementById('guestBody').innerHTML=list.map((g,i)=>`<tr><td>${esc(g.name)}</td><td><input type="checkbox" class="toggle" ${g.plus?'checked':''} onchange="togglePlus(${i},this.checked)"></td><td><button class="btn-sm danger" onclick="removeGuest(${i})">Remove</button></td></tr>`).join('')||'<tr><td colspan="3" style="color:var(--muted);padding:1rem 0;font-size:0.84rem;">No guests added yet.</td></tr>';
+}
+function addGuest(){
+  const inp=document.getElementById('newGuest'); const name=inp.value.trim();
+  if(!name) return; const list=getGuests();
+  if(list.some(g=>g.name.toLowerCase()===name.toLowerCase())){alert('Already on the list.');return;}
+  list.push({name,plus:false}); saveGuests(list); inp.value=''; renderGuests();
+}
+function togglePlus(i,v){const l=getGuests();l[i].plus=v;saveGuests(l);}
+function removeGuest(i){const l=getGuests();l.splice(i,1);saveGuests(l);renderGuests();}
+
+function sendMsg(){
+  const s=document.getElementById('msgStatus');
+  if(!MSG_API){s.className='form-msg err';s.textContent='Messaging API not configured.';return;}
+}
+function postAnn(){
+  const title=document.getElementById('annTitle').value.trim();
+  const body=document.getElementById('annBody').value.trim();
+  if(!title||!body) return;
+  const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('ann-list').insertAdjacentHTML('afterbegin',`<div class="ann-item fade in"><p class="ann-date">${today}</p><h3>${esc(title)}</h3><p>${esc(body)}</p></div>`);
+  document.getElementById('annTitle').value=''; document.getElementById('annBody').value='';
 }
 
-function addGuest() {
-  const inp = document.getElementById('newGuest');
-  const name = inp.value.trim();
-  if (!name) return;
-  const list = getGuests();
-  if (list.some(g=>g.name.toLowerCase()===name.toLowerCase())) { alert('Already on the list.'); return; }
-  list.push({ name, plus: false });
-  saveGuests(list); inp.value=''; renderGuests();
-}
-function togglePlus(i, v) { const l=getGuests(); l[i].plus=v; saveGuests(l); }
-function removeGuest(i)   { const l=getGuests(); l.splice(i,1); saveGuests(l); renderGuests(); }
-
-/* ── Messaging ────────────────────────────────────────── */
-async function sendMsg() {
-  const s = document.getElementById('msgStatus');
-  if (!MSG_API) { s.className='form-msg err'; s.textContent='Messaging API not configured.'; return; }
-  try {
-    const res = await fetch(MSG_API,{ method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ recipients: document.querySelector('input[name="msgTo"]:checked').value,
-        type: document.getElementById('msgType').value,
-        subject: document.getElementById('msgSubject').value,
-        body: document.getElementById('msgBody').value }) });
-    s.className = res.ok ? 'form-msg ok' : 'form-msg err';
-    s.textContent = res.ok ? 'Messages sent!' : 'Send failed.';
-  } catch { s.className='form-msg err'; s.textContent='Failed. Check your backend.'; }
-}
-
-/* ── Announcements ────────────────────────────────────── */
-function postAnn() {
-  const title = document.getElementById('annTitle').value.trim();
-  const body  = document.getElementById('annBody').value.trim();
-  if (!title||!body) return;
-  const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  document.getElementById('ann-list').insertAdjacentHTML('afterbegin',`
-    <div class="ann-item fade in">
-      <p class="ann-date">${today}</p>
-      <h3>${esc(title)}</h3>
-      <p>${esc(body)}</p>
-    </div>`);
-  document.getElementById('annTitle').value='';
-  document.getElementById('annBody').value='';
-  if (!useLS && db) window._fb.addDoc(window._fb.collection(db,'announcements'),{title,body,date:today,ts:new Date()});
-}
-
-/* ── Countdown ────────────────────────────────────────── */
-function tick() {
-  const diff = new Date('2026-08-23T16:00:00-04:00') - new Date();
-  if (diff<=0) { document.getElementById('countdown').innerHTML='<p style="color:var(--gold);font-size:1.2rem;">Today is the day!</p>'; return; }
-  document.getElementById('cd-d').textContent = Math.floor(diff/86400000);
-  document.getElementById('cd-h').textContent = String(Math.floor(diff/3600000)%24).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(Math.floor(diff/60000)%60).padStart(2,'0');
-  document.getElementById('cd-s').textContent = String(Math.floor(diff/1000)%60).padStart(2,'0');
+/* Countdown */
+function tick(){
+  const diff=new Date('2026-08-23T16:00:00-04:00')-new Date();
+  if(diff<=0) return;
 }
 setInterval(tick,1000); tick();
 
-/* ── Scroll fade-in ───────────────────────────────────── */
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-},{ threshold:0.07 });
+/* Fade-in */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:0.07});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
-/* ── Firebase (optional) ──────────────────────────────── */
-async function initFB() {
-  if (FIREBASE_CONFIG.apiKey==='YOUR_API_KEY') return;
-  try {
-    const {initializeApp}=await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
-    const {getFirestore,collection,addDoc,getDocs,query,orderBy}=await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-    const app=initializeApp(FIREBASE_CONFIG); db=getFirestore(app); useLS=false;
-    window._fb={collection,addDoc,getDocs,query,orderBy};
-  } catch(e){ console.warn('Firebase unavailable, using localStorage',e); }
-}
-
-/* ── Util ─────────────────────────────────────────────── */
-function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-initFB();
+/* Util */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 </script>
 </body>
 </html>
