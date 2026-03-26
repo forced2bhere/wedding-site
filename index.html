@@ -6,77 +6,40 @@
 <title>Po & Jeanine — August 23, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===== CSS Reset & Base ===== */
+/* ===== Reset & Base ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --charcoal: #2D2D2D;
-  --charcoal-light: #3D3D3D;
+  --charcoal: #1e1b16;
+  --charcoal-light: #3a352d;
   --gold: #C4A35A;
   --gold-light: #D4BC7C;
   --gold-pale: #F5ECD7;
-  --cream: #FAF8F5;
+  --cream: #faf8f4;
   --white: #FFFFFF;
-  --text-dark: #1A1A1A;
-  --text-muted: #6B6B6B;
-  --sage: #8B9A7B;
-  --blush: #D4A89A;
+  --text-dark: #1a1712;
+  --text-muted: #6b6460;
+  --brick-mortar: #ccc8c0;
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 
+/* ===== White Brick Wall Background ===== */
 body {
   font-family: var(--font-body);
   font-weight: 300;
   color: var(--text-dark);
-  background: var(--cream);
   line-height: 1.7;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--brick-mortar);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect width='120' height='60' fill='%23ccc8c0'/%3E%3Crect x='2' y='2' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='62' y='2' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3Crect x='-28' y='32' width='56' height='26' rx='1' fill='%23f6f5f2'/%3E%3Crect x='32' y='32' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='92' y='32' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3C/svg%3E");
+  background-size: 120px 60px;
 }
 
-/* ===== Navigation ===== */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(45,45,45,0.95);
-  backdrop-filter: blur(10px);
-  padding: 0 2rem;
-  transition: all 0.3s ease;
-}
-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  max-width: 900px;
-  margin: 0 auto;
-  gap: 0.5rem;
-}
-nav li a {
-  display: block;
-  padding: 1.1rem 1.2rem;
-  color: var(--gold-light);
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-nav li a:hover, nav li a.active { color: var(--white); }
-
-/* Mobile nav */
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 1rem; }
-.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--gold-light); margin: 5px 0; transition: 0.3s; }
-
-/* ===== Hero ===== */
+/* ===== Hero / Title Page ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -84,104 +47,176 @@ nav li a:hover, nav li a.active { color: var(--white); }
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--charcoal);
+  background-color: rgba(20, 17, 12, 0.91);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect width='120' height='60' fill='%23ccc8c0'/%3E%3Crect x='2' y='2' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='62' y='2' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3Crect x='-28' y='32' width='56' height='26' rx='1' fill='%23f6f5f2'/%3E%3Crect x='32' y='32' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='92' y='32' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3C/svg%3E");
+  background-size: 120px 60px;
+  background-blend-mode: multiply;
   color: var(--white);
-  padding: 6rem 2rem 4rem;
+  padding: 3rem 2rem 5rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
-.hero::before {
+
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 30%, rgba(196,163,90,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 40%, rgba(196,163,90,0.10) 0%, transparent 65%);
+  pointer-events: none;
 }
-.hero-content { position: relative; z-index: 1; }
-.hero-pretext {
+
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+.hero-tagline {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: clamp(0.65rem, 2vw, 0.8rem);
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
+
+.hero-tagline span {
+  display: inline-block;
+  margin: 0 0.6rem;
+  color: rgba(196,163,90,0.45);
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
   font-weight: 300;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  line-height: 1.0;
+  margin-bottom: 1.8rem;
   color: var(--white);
+  letter-spacing: -0.01em;
 }
+
 .hero h1 .amp {
   font-style: italic;
   color: var(--gold);
-  font-weight: 300;
 }
-.hero-date {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 3px;
-  color: var(--gold-light);
-  margin-bottom: 0.5rem;
-}
-.hero-venue {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 3rem;
-}
-.hero-divider {
-  width: 60px;
+
+.hero-rule {
+  width: 50px;
   height: 1px;
   background: var(--gold);
-  margin: 0 auto 3rem;
+  margin: 0 auto 1.8rem;
+  opacity: 0.7;
+}
+
+.hero-date {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.4rem;
+}
+
+.hero-venue {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 3rem;
 }
 
 /* Countdown */
 .countdown {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 4vw, 2.5rem);
   justify-content: center;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 .countdown-item { text-align: center; }
 .countdown-number {
   display: block;
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 300;
   color: var(--gold);
   line-height: 1;
 }
 .countdown-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.4);
   margin-top: 0.3rem;
 }
 
-/* ===== Sections ===== */
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero-scroll-hint svg {
+  animation: bounceDown 1.8s ease-in-out infinite;
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(6px); opacity: 0.7; }
+}
+
+/* ===== Content Sections ===== */
+.section-wrap {
+  background: var(--cream);
+  max-width: 100%;
+}
+.section-wrap.white { background: var(--white); }
+.section-wrap.dark {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
 section {
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   max-width: 900px;
   margin: 0 auto;
 }
+
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
 }
 .section-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.section-label::before,
+.section-label::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
 }
 .section-title {
   font-family: var(--font-display);
@@ -190,132 +225,151 @@ section {
   color: var(--charcoal);
   line-height: 1.2;
 }
-.section-divider {
-  width: 40px;
+.dark .section-title { color: var(--white); }
+.section-rule {
+  width: 36px;
   height: 1px;
   background: var(--gold);
-  margin: 1.5rem auto 0;
+  margin: 1.2rem auto 0;
 }
 
-/* ===== Story / Our Story ===== */
-#our-story { background: var(--white); max-width: 100%; padding: 6rem 2rem; }
-#our-story .story-inner { max-width: 700px; margin: 0 auto; }
+/* ===== Food Icon Divider ===== */
+.food-divider {
+  text-align: center;
+  padding: 1.2rem 0;
+  background: var(--brick-mortar);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect width='120' height='60' fill='%23ccc8c0'/%3E%3Crect x='2' y='2' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='62' y='2' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3Crect x='-28' y='32' width='56' height='26' rx='1' fill='%23f6f5f2'/%3E%3Crect x='32' y='32' width='56' height='26' rx='1' fill='%23f8f7f4'/%3E%3Crect x='92' y='32' width='56' height='26' rx='1' fill='%23f5f4f1'/%3E%3C/svg%3E");
+  background-size: 120px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.food-divider svg { opacity: 0.55; }
+
+/* ===== Our Story ===== */
 .story-text {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  line-height: 1.9;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 2;
   color: var(--charcoal-light);
   text-align: center;
   font-style: italic;
+  max-width: 660px;
+  margin: 0 auto;
 }
 
-/* ===== Details ===== */
+/* ===== Details Cards ===== */
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 .detail-card {
   background: var(--white);
-  border: 1px solid rgba(196,163,90,0.2);
-  border-radius: 4px;
-  padding: 2.5rem 2rem;
+  border: 1px solid rgba(196,163,90,0.18);
+  border-top: 3px solid var(--gold);
+  padding: 2.2rem 1.8rem;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 .detail-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.07);
 }
-.detail-card svg { margin-bottom: 1.2rem; }
+.detail-icon { margin-bottom: 1rem; }
 .detail-card h3 {
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--charcoal);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
-.detail-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+.detail-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
 
 /* ===== Announcements ===== */
-#announcements { background: var(--white); max-width: 100%; padding: 6rem 2rem; }
-.announcements-inner { max-width: 700px; margin: 0 auto; }
+.announcements-inner { max-width: 680px; margin: 0 auto; }
 .announcement {
   border-left: 2px solid var(--gold);
-  padding: 1.5rem 0 1.5rem 2rem;
+  padding: 1.4rem 0 1.4rem 2rem;
   margin-bottom: 1.5rem;
   position: relative;
 }
 .announcement::before {
   content: '';
   position: absolute;
-  left: -5px;
-  top: 1.8rem;
-  width: 8px;
-  height: 8px;
+  left: -5px; top: 1.8rem;
+  width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
 }
 .announcement-date {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 .announcement h3 {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 400;
   color: var(--charcoal);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
-.announcement p { font-size: 0.9rem; color: var(--text-muted); }
+.announcement p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* ===== Celebrate / Foodie Grid ===== */
+.illustration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.illustration-item { text-align: center; padding: 1.5rem 1rem; }
+.illustration-item svg { margin-bottom: 1.2rem; }
+.illustration-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.illustration-item p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
 /* ===== RSVP ===== */
 #rsvp { text-align: center; }
-.rsvp-form {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
-}
-.form-group { margin-bottom: 1.5rem; }
+.rsvp-form { max-width: 480px; margin: 0 auto; text-align: left; }
+.form-group { margin-bottom: 1.4rem; }
 .form-group label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--charcoal);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 0.85rem 1rem;
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 300;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 2px;
   background: var(--white);
   color: var(--charcoal);
-  transition: border-color 0.3s;
+  transition: border-color 0.2s;
 }
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-}
-.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group textarea:focus { outline: none; border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 90px; }
 
 .btn-primary {
   display: inline-block;
@@ -323,92 +377,74 @@ section {
   background: var(--gold);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.25s, transform 0.2s;
   width: 100%;
 }
 .btn-primary:hover { background: var(--charcoal); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
 
+.no-plus-one-note {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
 .form-message {
   margin-top: 1.5rem;
   padding: 1rem;
-  border-radius: 3px;
-  font-size: 0.9rem;
+  border-radius: 2px;
+  font-size: 0.88rem;
   display: none;
 }
-.form-message.success { display: block; background: #e8f5e9; color: #2e7d32; }
+.form-message.success { display: block; background: #edf7ee; color: #276b2e; }
 .form-message.error { display: block; background: #fbe9e7; color: #c62828; }
-
-/* ===== Illustrations Section ===== */
-#celebrate { background: var(--charcoal); max-width: 100%; padding: 6rem 2rem; color: var(--white); }
-.celebrate-inner { max-width: 900px; margin: 0 auto; }
-.illustration-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-.illustration-item {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-.illustration-item svg { margin-bottom: 1.2rem; }
-.illustration-item h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.illustration-item p {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.6;
-}
 
 /* ===== Footer ===== */
 footer {
   background: var(--charcoal);
-  border-top: 1px solid rgba(196,163,90,0.2);
+  border-top: 1px solid rgba(196,163,90,0.15);
   text-align: center;
   padding: 3rem 2rem;
-  color: rgba(255,255,255,0.4);
-  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.78rem;
 }
-footer .footer-names {
+.footer-names {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--gold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-/* ===== Admin Panel (hidden by default) ===== */
+/* ===== Admin Panel ===== */
 .admin-panel {
   display: none;
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
   align-items: center;
   justify-content: center;
 }
 .admin-panel.visible { display: flex; }
 .admin-content {
   background: var(--white);
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 2.5rem;
-  max-width: 700px;
+  max-width: 720px;
   width: 95%;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow-y: auto;
+  position: relative;
 }
 .admin-content h2 {
   font-family: var(--font-display);
@@ -416,108 +452,153 @@ footer .footer-names {
   color: var(--charcoal);
   margin-bottom: 1.5rem;
 }
-.admin-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
 .admin-tab {
-  padding: 0.6rem 1.2rem;
-  font-size: 0.75rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   border: 1px solid #ddd;
   background: var(--white);
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 2px;
   font-family: var(--font-body);
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 .admin-tab.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
 .admin-section { display: none; }
 .admin-section.active { display: block; }
 .rsvp-list { list-style: none; }
 .rsvp-list li {
-  padding: 0.8rem 0;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
-.rsvp-list .attending { color: #2e7d32; }
+.rsvp-list .attending { color: #276b2e; }
 .rsvp-list .not-attending { color: #c62828; }
 .close-admin {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+  top: 1rem; right: 1.5rem;
+  background: none; border: none;
+  font-size: 1.5rem; cursor: pointer;
   color: var(--text-muted);
 }
 
-/* Messaging form in admin */
-.msg-form { margin-top: 1rem; }
-.msg-form .form-group { margin-bottom: 1rem; }
-.msg-recipients {
+/* Guest List (Plus-1 tab) */
+.guest-list-controls {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
-.msg-recipients label {
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.guest-list-controls input {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+.guest-list-controls input:focus { outline: none; border-color: var(--gold); }
+.btn-sm {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  border: none;
+  border-radius: 2px;
   cursor: pointer;
+  background: var(--charcoal);
+  color: var(--white);
+  transition: background 0.2s;
 }
+.btn-sm:hover { background: var(--gold); }
+.btn-sm.danger { background: #c62828; }
+.btn-sm.danger:hover { background: #8e1b1b; }
+.guest-list-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.guest-list-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid #eee;
+}
+.guest-list-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #f5f5f5; }
+.guest-list-table tr:last-child td { border-bottom: none; }
+.toggle-plus-one {
+  appearance: none;
+  width: 36px; height: 20px;
+  background: #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle-plus-one::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 14px; height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.toggle-plus-one:checked { background: var(--gold); }
+.toggle-plus-one:checked::after { left: 19px; }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  nav ul { display: none; flex-direction: column; padding: 1rem 0; }
-  nav ul.open { display: flex; }
-  .nav-toggle { display: block; position: absolute; right: 1rem; top: 0.6rem; }
-  .countdown { gap: 1rem; }
-  .countdown-number { font-size: 1.8rem; }
-  .illustration-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .details-grid { grid-template-columns: 1fr; }
-  section { padding: 4rem 1.5rem; }
-}
+/* Messaging */
+.msg-form { margin-top: 1rem; }
+.msg-recipients { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.msg-recipients label { font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
 
 /* ===== Animations ===== */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Responsive / Mobile ===== */
+@media (max-width: 640px) {
+  .hero { padding: 2rem 1.5rem 5rem; }
+  .hero h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+  .hero-tagline { letter-spacing: 3px; font-size: 0.68rem; }
+  .countdown { gap: 1rem; }
+  .countdown-number { font-size: 1.8rem; }
+  .illustration-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .details-grid { grid-template-columns: 1fr; }
+  section { padding: 3.5rem 1.25rem; }
+  .admin-content { padding: 1.5rem; }
+  .admin-tabs { gap: 0.3rem; }
+  .guest-list-controls { flex-direction: column; }
+}
+
+@media (max-width: 400px) {
+  .hero-tagline span { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== Navigation ===== -->
-<nav id="mainNav">
-  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#our-story">Our Story</a></li>
-    <li><a href="#details">Details</a></li>
-    <li><a href="#announcements">Updates</a></li>
-    <li><a href="#celebrate">Celebrate</a></li>
-    <li><a href="#rsvp">RSVP</a></li>
-  </ul>
-</nav>
-
-<!-- ===== Hero ===== -->
-<section class="hero" id="home">
+<!-- ===== Hero / Title Page (click to advance) ===== -->
+<section class="hero" id="home" onclick="heroAdvance()" role="button" aria-label="Click to continue">
   <div class="hero-content">
-    <p class="hero-pretext">Together with their families</p>
+    <p class="hero-tagline">
+      Us <span>·</span> You <span>·</span> Food <span>·</span> Booze
+    </p>
     <h1>Po <span class="amp">&</span> Jeanine</h1>
-    <div class="hero-divider"></div>
-    <p class="hero-date">SUNDAY, AUGUST 23, 2026</p>
+    <div class="hero-rule"></div>
+    <p class="hero-date">Sunday, August 23, 2026</p>
     <p class="hero-venue">The Great American Beer Hall &middot; Malden, MA</p>
     <div class="countdown" id="countdown">
       <div class="countdown-item">
@@ -530,291 +611,361 @@ footer .footer-names {
       </div>
       <div class="countdown-item">
         <span class="countdown-number" id="cd-mins">--</span>
-        <span class="countdown-label">Minutes</span>
+        <span class="countdown-label">Mins</span>
       </div>
       <div class="countdown-item">
         <span class="countdown-number" id="cd-secs">--</span>
-        <span class="countdown-label">Seconds</span>
+        <span class="countdown-label">Secs</span>
       </div>
     </div>
   </div>
-
-  <!-- Hero decorative SVG -->
-  <svg style="position:absolute;bottom:0;left:0;right:0;width:100%;height:80px;" viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" opacity="1"/>
-  </svg>
+  <div class="hero-scroll-hint">
+    <span>tap to continue</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 3v10M3 9l5 5 5-5" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 </section>
 
 <!-- ===== Our Story ===== -->
-<section id="our-story">
-  <div class="story-inner fade-in">
-    <div class="section-header">
-      <p class="section-label">Our Journey</p>
-      <h2 class="section-title">How It All Began</h2>
-      <div class="section-divider"></div>
+<div class="section-wrap white">
+  <section id="our-story">
+    <div class="story-inner fade-in">
+      <div class="section-header">
+        <p class="section-label">Our Journey</p>
+        <h2 class="section-title">How It All Began</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="story-text">
+        What started with shared laughter and a love for great food
+        has grown into a lifetime of adventures together. From favorite
+        neighborhood spots to our families' dinner tables, the best
+        moments have always been around the people and flavors we love most.
+        Now we're ready to celebrate the next chapter — and we want you there.
+      </p>
     </div>
-    <p class="story-text">
-      What started with shared laughter and a love for great food
-      has grown into a lifetime of adventures together. From favorite
-      neighborhood spots to our families' dinner tables, the best
-      moments have always been around the people and flavors we love most.
-      Now we're ready to celebrate the next chapter — and we want you there.
-    </p>
-  </div>
-</section>
+  </section>
+</div>
+
+<!-- ===== Food Divider ===== -->
+<div class="food-divider" aria-hidden="true">
+  <!-- Fork -->
+  <svg width="22" height="40" viewBox="0 0 22 40" fill="none">
+    <line x1="4" y1="2" x2="4" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="11" y1="2" x2="11" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="18" y1="2" x2="18" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M4 14 Q4 20 11 20 Q18 20 18 14" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <line x1="11" y1="20" x2="11" y2="38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <!-- Beer Mug -->
+  <svg width="32" height="40" viewBox="0 0 32 40" fill="none">
+    <rect x="2" y="6" width="20" height="30" rx="2" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <path d="M22 12 Q30 14 30 20 Q30 26 22 28" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <rect x="4" y="6" width="16" height="7" rx="1" fill="#C4A35A" fill-opacity="0.12"/>
+    <circle cx="8" cy="9" r="1.2" fill="#C4A35A" fill-opacity="0.3"/>
+    <circle cx="13" cy="8" r="1" fill="#C4A35A" fill-opacity="0.25"/>
+    <circle cx="17" cy="9.5" r="0.8" fill="#C4A35A" fill-opacity="0.3"/>
+  </svg>
+  <!-- Knife -->
+  <svg width="14" height="40" viewBox="0 0 14 40" fill="none">
+    <path d="M7 2 C7 2 12 8 12 16 L7 20 L7 38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="7" y1="20" x2="2" y2="16" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <!-- ===== Event Details ===== -->
-<section id="details">
-  <div class="section-header fade-in">
-    <p class="section-label">The Details</p>
-    <h2 class="section-title">When & Where</h2>
-    <div class="section-divider"></div>
-  </div>
-  <div class="details-grid">
-    <div class="detail-card fade-in">
-      <!-- Calendar SVG -->
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <rect x="6" y="10" width="36" height="32" rx="3" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-        <line x1="6" y1="20" x2="42" y2="20" stroke="var(--gold)" stroke-width="1.5"/>
-        <line x1="16" y1="6" x2="16" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="32" y1="6" x2="32" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-        <text x="24" y="35" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="var(--gold)">23</text>
-      </svg>
-      <h3>The Date</h3>
-      <p>Sunday, August 23, 2026<br>Ceremony at 4:00 PM<br>Reception to follow</p>
+<div class="section-wrap">
+  <section id="details">
+    <div class="section-header fade-in">
+      <p class="section-label">The Details</p>
+      <h2 class="section-title">When &amp; Where</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="detail-card fade-in">
-      <!-- Location pin SVG -->
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <path d="M24 4C16.268 4 10 10.268 10 18C10 28 24 44 24 44C24 44 38 28 38 18C38 10.268 31.732 4 24 4Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-        <circle cx="24" cy="18" r="5" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-      </svg>
-      <h3>The Venue</h3>
-      <p>The Great American Beer Hall<br>Malden, Massachusetts</p>
+    <div class="details-grid">
+      <div class="detail-card fade-in">
+        <div class="detail-icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect x="5" y="9" width="34" height="30" rx="2" stroke="var(--gold)" stroke-width="1.4" fill="none"/>
+            <line x1="5" y1="18" x2="39" y2="18" stroke="var(--gold)" stroke-width="1.4"/>
+            <line x1="14" y1="5" x2="14" y2="13" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="30" y1="5" x2="30" y2="13" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round"/>
+            <text x="22" y="32" text-anchor="middle" font-family="Cormorant Garamond" font-size="12" fill="var(--gold)">23</text>
+          </svg>
+        </div>
+        <h3>The Date</h3>
+        <p>Sunday, August 23, 2026<br>Ceremony at 4:00 PM<br>Reception to follow</p>
+      </div>
+      <div class="detail-card fade-in">
+        <div class="detail-icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <path d="M22 4C15.4 4 10 9.4 10 16C10 25 22 40 22 40C22 40 34 25 34 16C34 9.4 28.6 4 22 4Z" stroke="var(--gold)" stroke-width="1.4" fill="none"/>
+            <circle cx="22" cy="16" r="4.5" stroke="var(--gold)" stroke-width="1.4" fill="none"/>
+          </svg>
+        </div>
+        <h3>The Venue</h3>
+        <p>The Great American Beer Hall<br>Malden, Massachusetts</p>
+      </div>
+      <div class="detail-card fade-in">
+        <div class="detail-icon">
+          <!-- Beer glass icon -->
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect x="10" y="8" width="18" height="28" rx="2" stroke="var(--gold)" stroke-width="1.4" fill="none"/>
+            <path d="M28 14 Q36 16 36 22 Q36 28 28 30" stroke="var(--gold)" stroke-width="1.4" fill="none"/>
+            <rect x="12" y="8" width="14" height="7" rx="1" fill="var(--gold)" fill-opacity="0.12"/>
+          </svg>
+        </div>
+        <h3>The Feast</h3>
+        <p>Craft beer &amp; curated bites<br>Dinner, drinks &amp; dancing<br>Celebrating the flavors we love</p>
+      </div>
     </div>
-    <div class="detail-card fade-in">
-      <!-- Utensils SVG -->
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <path d="M18 6V18C18 20.2 16.2 22 14 22H13V42" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <line x1="13" y1="6" x2="13" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M35 6C35 6 38 10 38 16C38 20 35 22 35 22V42" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      </svg>
-      <h3>The Feast</h3>
-      <p>Dinner, drinks & dancing<br>Craft beer and curated bites<br>celebrating our favorite flavors</p>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<!-- ===== Food Divider ===== -->
+<div class="food-divider" aria-hidden="true">
+  <!-- Champagne glass left -->
+  <svg width="18" height="40" viewBox="0 0 18 40" fill="none">
+    <path d="M2 2 L16 2 L12 18 Q9 22 9 38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="5" y1="38" x2="13" y2="38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <!-- Plate -->
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+    <ellipse cx="20" cy="28" rx="16" ry="4" stroke="#C4A35A" stroke-width="1" fill="none" opacity="0.4"/>
+    <ellipse cx="20" cy="22" rx="14" ry="10" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <ellipse cx="20" cy="22" rx="9" ry="7" stroke="#C4A35A" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <path d="M14 14 Q14 8 14 4" stroke="#C4A35A" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <path d="M20 12 Q20 6 20 2" stroke="#C4A35A" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <path d="M26 14 Q26 8 26 4" stroke="#C4A35A" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </svg>
+  <!-- Champagne glass right -->
+  <svg width="18" height="40" viewBox="0 0 18 40" fill="none">
+    <path d="M16 2 L2 2 L6 18 Q9 22 9 38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="5" y1="38" x2="13" y2="38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <!-- ===== Announcements ===== -->
-<section id="announcements">
-  <div class="announcements-inner">
-    <div class="section-header fade-in">
-      <p class="section-label">Latest News</p>
-      <h2 class="section-title">Announcements</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div id="announcements-list">
-      <div class="announcement fade-in">
-        <p class="announcement-date">March 26, 2026</p>
-        <h3>Our Website is Live!</h3>
-        <p>Welcome to our wedding website! We're so excited to share this journey with you. Keep checking back for updates as the big day approaches.</p>
+<div class="section-wrap white">
+  <section id="announcements">
+    <div class="announcements-inner">
+      <div class="section-header fade-in">
+        <p class="section-label">Latest News</p>
+        <h2 class="section-title">Announcements</h2>
+        <div class="section-rule"></div>
       </div>
-      <div class="announcement fade-in">
-        <p class="announcement-date">March 26, 2026</p>
-        <h3>Save the Date</h3>
-        <p>Mark your calendars for Sunday, August 23, 2026. Formal invitations will follow soon. We can't wait to celebrate with you!</p>
+      <div id="announcements-list">
+        <div class="announcement fade-in">
+          <p class="announcement-date">March 26, 2026</p>
+          <h3>Our Website is Live!</h3>
+          <p>Welcome to our wedding website! We're so excited to share this journey with you. Keep checking back for updates as the big day approaches.</p>
+        </div>
+        <div class="announcement fade-in">
+          <p class="announcement-date">March 26, 2026</p>
+          <h3>Save the Date</h3>
+          <p>Mark your calendars for Sunday, August 23, 2026. Formal invitations will follow soon. We can't wait to celebrate with you!</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- ===== Celebrate Section with Illustrations ===== -->
-<section id="celebrate">
-  <div class="celebrate-inner">
+<!-- ===== Celebrate (dark, foodie) ===== -->
+<div class="section-wrap dark">
+  <section id="celebrate">
     <div class="section-header fade-in">
       <p class="section-label" style="color:var(--gold-light)">What Awaits</p>
-      <h2 class="section-title" style="color:var(--white)">An Evening of Joy</h2>
-      <div class="section-divider"></div>
+      <h2 class="section-title">An Evening of Joy</h2>
+      <div class="section-rule"></div>
     </div>
     <div class="illustration-grid">
-      <!-- Foodie Illustration -->
+      <!-- Craft Brews -->
       <div class="illustration-item fade-in">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <!-- Plate -->
-          <ellipse cx="60" cy="75" rx="45" ry="12" stroke="var(--gold)" stroke-width="1.2" opacity="0.3"/>
-          <ellipse cx="60" cy="65" rx="38" ry="28" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-          <ellipse cx="60" cy="65" rx="28" ry="20" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
-          <!-- Steam lines -->
-          <path d="M45 40 Q47 32 45 24" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
-            <animate attributeName="d" values="M45 40 Q47 32 45 24;M45 40 Q43 32 45 24;M45 40 Q47 32 45 24" dur="3s" repeatCount="indefinite"/>
-          </path>
-          <path d="M60 36 Q62 28 60 20" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
-            <animate attributeName="d" values="M60 36 Q62 28 60 20;M60 36 Q58 28 60 20;M60 36 Q62 28 60 20" dur="2.5s" repeatCount="indefinite"/>
-          </path>
-          <path d="M75 40 Q77 32 75 24" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
-            <animate attributeName="d" values="M75 40 Q77 32 75 24;M75 40 Q73 32 75 24;M75 40 Q77 32 75 24" dur="3.5s" repeatCount="indefinite"/>
-          </path>
-          <!-- Beer glass -->
-          <rect x="85" y="42" width="16" height="28" rx="2" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M101 50 Q108 52 108 58 Q108 64 101 66" stroke="var(--gold)" stroke-width="1" fill="none"/>
-          <rect x="87" y="45" width="12" height="8" rx="1" fill="var(--gold)" opacity="0.15"/>
-          <!-- Foam bubbles -->
-          <circle cx="90" cy="44" r="2" fill="var(--gold)" opacity="0.2"/>
-          <circle cx="95" cy="43" r="1.5" fill="var(--gold)" opacity="0.15"/>
-          <circle cx="98" cy="44" r="1" fill="var(--gold)" opacity="0.2"/>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <rect x="22" y="28" width="36" height="50" rx="3" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <path d="M58 38 Q74 40 74 50 Q74 60 58 62" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <rect x="25" y="28" width="30" height="12" rx="2" fill="var(--gold)" fill-opacity="0.12"/>
+          <circle cx="32" cy="34" r="2.5" fill="var(--gold)" fill-opacity="0.3"/>
+          <circle cx="42" cy="32" r="2" fill="var(--gold)" fill-opacity="0.25"/>
+          <circle cx="50" cy="34" r="1.5" fill="var(--gold)" fill-opacity="0.3"/>
+          <line x1="30" y1="52" x2="50" y2="52" stroke="var(--gold)" stroke-width="0.8" opacity="0.3"/>
+          <line x1="30" y1="58" x2="50" y2="58" stroke="var(--gold)" stroke-width="0.8" opacity="0.2"/>
         </svg>
-        <h3>Feast</h3>
-        <p>Curated bites and craft brews — a celebration of the flavors we love most</p>
+        <h3>Craft Brews</h3>
+        <p>Cold pints and local favorites at the Beer Hall bar</p>
       </div>
-      <!-- Friends Illustration -->
+      <!-- Food -->
       <div class="illustration-item fade-in">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <!-- Three people toasting -->
-          <!-- Person left -->
-          <circle cx="35" cy="42" r="10" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <path d="M25 62 Q25 52 35 52 Q45 52 45 62" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <line x1="45" y1="55" x2="52" y2="35" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
-          <!-- Person center -->
-          <circle cx="60" cy="38" r="11" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-          <path d="M48 60 Q48 49 60 49 Q72 49 72 60" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
-          <!-- Person right -->
-          <circle cx="85" cy="42" r="10" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <path d="M75 62 Q75 52 85 52 Q95 52 95 62" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
-          <line x1="75" y1="55" x2="68" y2="35" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
-          <!-- Glasses clinking -->
-          <rect x="49" y="22" width="8" height="16" rx="2" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(-15 53 30)"/>
-          <rect x="63" y="22" width="8" height="16" rx="2" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(15 67 30)"/>
-          <!-- Sparkle -->
-          <path d="M60 20 L61 17 L62 20 L65 21 L62 22 L61 25 L60 22 L57 21 Z" fill="var(--gold)" opacity="0.6">
-            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <ellipse cx="50" cy="65" rx="32" ry="9" stroke="var(--gold)" stroke-width="1" opacity="0.25" fill="none"/>
+          <ellipse cx="50" cy="58" rx="28" ry="20" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <ellipse cx="50" cy="58" rx="19" ry="13" stroke="var(--gold)" stroke-width="0.7" fill="none" opacity="0.35"/>
+          <path d="M36 38 Q36 30 36 20" stroke="var(--gold-light)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5">
+            <animate attributeName="d" values="M36 38 Q37 30 36 20;M36 38 Q35 30 36 20;M36 38 Q37 30 36 20" dur="3s" repeatCount="indefinite"/>
           </path>
-          <!-- Ground line -->
-          <line x1="20" y1="75" x2="100" y2="75" stroke="var(--gold)" stroke-width="0.5" opacity="0.3"/>
-          <!-- Hearts -->
-          <path d="M30 78 Q30 75 33 75 Q36 75 36 78 Q36 82 33 85 Q30 82 30 78Z" fill="var(--gold)" opacity="0.2"/>
-          <path d="M82 78 Q82 75 85 75 Q88 75 88 78 Q88 82 85 85 Q82 82 82 78Z" fill="var(--gold)" opacity="0.2"/>
+          <path d="M50 34 Q50 26 50 16" stroke="var(--gold-light)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5">
+            <animate attributeName="d" values="M50 34 Q51 26 50 16;M50 34 Q49 26 50 16;M50 34 Q51 26 50 16" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M64 38 Q64 30 64 20" stroke="var(--gold-light)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.5">
+            <animate attributeName="d" values="M64 38 Q65 30 64 20;M64 38 Q63 30 64 20;M64 38 Q65 30 64 20" dur="3.5s" repeatCount="indefinite"/>
+          </path>
         </svg>
-        <h3>Friends</h3>
-        <p>Our favorite people, all in one room — the ones who made us who we are</p>
+        <h3>The Feast</h3>
+        <p>Curated bites and bold flavors — a menu worth celebrating</p>
       </div>
-      <!-- Family Illustration -->
+      <!-- People -->
       <div class="illustration-item fade-in">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <!-- Tree trunk -->
-          <rect x="55" y="55" width="10" height="35" rx="2" fill="var(--gold)" opacity="0.15"/>
-          <rect x="55" y="55" width="10" height="35" rx="2" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <!-- Branches -->
-          <path d="M60 55 Q40 50 30 35" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M60 55 Q80 50 90 35" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
-          <path d="M60 45 Q45 40 35 28" stroke="var(--gold)" stroke-width="1" fill="none"/>
-          <path d="M60 45 Q75 40 85 28" stroke="var(--gold)" stroke-width="1" fill="none"/>
-          <path d="M60 38 Q50 32 42 22" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
-          <path d="M60 38 Q70 32 78 22" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
-          <!-- Leaves / circles (family members) -->
-          <circle cx="30" cy="33" r="6" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="90" cy="33" r="6" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="35" cy="25" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="85" cy="25" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="42" cy="19" r="4" stroke="var(--gold)" stroke-width="0.8" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="78" cy="19" r="4" stroke="var(--gold)" stroke-width="0.8" fill="var(--gold)" fill-opacity="0.1"/>
-          <circle cx="60" cy="14" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.15"/>
-          <!-- Heart at top -->
-          <path d="M57 12 Q57 9 60 9 Q63 9 63 12 Q63 15 60 18 Q57 15 57 12Z" fill="var(--gold)" opacity="0.5"/>
-          <!-- Roots -->
-          <path d="M57 90 Q50 95 42 98" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
-          <path d="M63 90 Q70 95 78 98" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
-          <path d="M60 90 Q60 96 60 100" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <circle cx="30" cy="40" r="9" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <path d="M20 60 Q20 49 30 49 Q40 49 40 60" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <line x1="40" y1="53" x2="46" y2="34" stroke="var(--gold)" stroke-width="1.1" stroke-linecap="round"/>
+          <circle cx="70" cy="40" r="9" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <path d="M60 60 Q60 49 70 49 Q80 49 80 60" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <line x1="60" y1="53" x2="54" y2="34" stroke="var(--gold)" stroke-width="1.1" stroke-linecap="round"/>
+          <rect x="43" y="20" width="6" height="16" rx="1.5" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(-12 46 28)"/>
+          <rect x="51" y="20" width="6" height="16" rx="1.5" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(12 54 28)"/>
+          <path d="M50 17 L51 14 L52 17 L55 18 L52 19 L51 22 L50 19 L47 18 Z" fill="var(--gold)" opacity="0.55">
+            <animate attributeName="opacity" values="0.55;1;0.55" dur="2s" repeatCount="indefinite"/>
+          </path>
         </svg>
-        <h3>Family</h3>
-        <p>Two families becoming one — rooted in love, growing together</p>
+        <h3>Good People</h3>
+        <p>Everyone we love in one room — that's the whole point</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<!-- ===== Food Divider ===== -->
+<div class="food-divider" aria-hidden="true">
+  <svg width="22" height="40" viewBox="0 0 22 40" fill="none">
+    <line x1="4" y1="2" x2="4" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="11" y1="2" x2="11" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="18" y1="2" x2="18" y2="14" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M4 14 Q4 20 11 20 Q18 20 18 14" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <line x1="11" y1="20" x2="11" y2="38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <svg width="32" height="40" viewBox="0 0 32 40" fill="none">
+    <rect x="2" y="6" width="20" height="30" rx="2" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <path d="M22 12 Q30 14 30 20 Q30 26 22 28" stroke="#C4A35A" stroke-width="1.4" fill="none"/>
+    <rect x="4" y="6" width="16" height="7" rx="1" fill="#C4A35A" fill-opacity="0.12"/>
+  </svg>
+  <svg width="14" height="40" viewBox="0 0 14 40" fill="none">
+    <path d="M7 2 C7 2 12 8 12 16 L7 20 L7 38" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="7" y1="20" x2="2" y2="16" stroke="#C4A35A" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <!-- ===== RSVP ===== -->
-<section id="rsvp">
-  <div class="section-header fade-in">
-    <p class="section-label">Respond</p>
-    <h2 class="section-title">RSVP</h2>
-    <div class="section-divider"></div>
-  </div>
-  <p style="color:var(--text-muted);margin-bottom:2.5rem;font-size:0.95rem;">
-    Please let us know if you can make it by <strong>July 1, 2026</strong>.
-  </p>
-  <form class="rsvp-form fade-in" id="rsvpForm" onsubmit="submitRSVP(event)">
-    <div class="form-group">
-      <label for="guestName">Full Name</label>
-      <input type="text" id="guestName" name="name" required placeholder="Your full name">
+<div class="section-wrap">
+  <section id="rsvp">
+    <div class="section-header fade-in">
+      <p class="section-label">Respond</p>
+      <h2 class="section-title">RSVP</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="form-group">
-      <label for="guestEmail">Email Address</label>
-      <input type="email" id="guestEmail" name="email" required placeholder="your@email.com">
-    </div>
-    <div class="form-group">
-      <label for="guestPhone">Phone Number (optional)</label>
-      <input type="tel" id="guestPhone" name="phone" placeholder="(555) 123-4567">
-    </div>
-    <div class="form-group">
-      <label for="attending">Will You Be Joining Us?</label>
-      <select id="attending" name="attending" required>
-        <option value="">Please select...</option>
-        <option value="yes">Joyfully Accept</option>
-        <option value="no">Regretfully Decline</option>
-      </select>
-    </div>
-    <div class="form-group" id="guestCountGroup" style="display:none;">
-      <label for="guestCount">Number of Guests (including yourself)</label>
-      <select id="guestCount" name="guestCount">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="dietary">Dietary Restrictions</label>
-      <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, gluten-free, allergies, etc.">
-    </div>
-    <div class="form-group">
-      <label for="message">A Note for Po & Jeanine (optional)</label>
-      <textarea id="message" name="message" placeholder="Share a wish, memory, or song request..."></textarea>
-    </div>
-    <button type="submit" class="btn-primary" id="rsvpBtn">Send Your RSVP</button>
-    <div class="form-message" id="formMessage"></div>
-  </form>
-</section>
+    <p style="color:var(--text-muted);margin-bottom:2.5rem;font-size:0.9rem;">
+      Please let us know if you can make it by <strong>July 1, 2026</strong>.
+    </p>
+    <form class="rsvp-form fade-in" id="rsvpForm" onsubmit="submitRSVP(event)">
+      <div class="form-group">
+        <label for="guestName">Full Name</label>
+        <input type="text" id="guestName" name="name" required placeholder="Your full name" oninput="checkPlusOneEligibility()">
+      </div>
+      <div class="form-group">
+        <label for="guestEmail">Email Address</label>
+        <input type="email" id="guestEmail" name="email" required placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label for="guestPhone">Phone Number (optional)</label>
+        <input type="tel" id="guestPhone" name="phone" placeholder="(555) 123-4567">
+      </div>
+      <div class="form-group">
+        <label for="attending">Will You Be Joining Us?</label>
+        <select id="attending" name="attending" required onchange="checkPlusOneEligibility()">
+          <option value="">Please select...</option>
+          <option value="yes">Joyfully Accept</option>
+          <option value="no">Regretfully Decline</option>
+        </select>
+      </div>
+      <div class="form-group" id="guestCountGroup" style="display:none;">
+        <label for="guestCount">Bringing a Plus One?</label>
+        <select id="guestCount" name="guestCount">
+          <option value="1">Just me</option>
+          <option value="2">Me + 1 guest</option>
+        </select>
+      </div>
+      <p class="no-plus-one-note" id="noPlusOneNote">
+        Your invitation is for one guest only. Please contact Po &amp; Jeanine with any questions.
+      </p>
+      <div class="form-group">
+        <label for="dietary">Dietary Restrictions</label>
+        <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, gluten-free, allergies, etc.">
+      </div>
+      <div class="form-group">
+        <label for="message">A Note for Po &amp; Jeanine (optional)</label>
+        <textarea id="message" name="message" placeholder="Share a wish, memory, or song request..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" id="rsvpBtn">Send Your RSVP</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </section>
+</div>
 
 <!-- ===== Footer ===== -->
 <footer>
-  <p class="footer-names">P <span style="color:var(--gold);font-style:italic;">&</span> J</p>
+  <p class="footer-names">P <span style="font-style:italic;">&</span> J</p>
   <p>August 23, 2026 &middot; Malden, MA</p>
 </footer>
 
 <!-- ===== Admin Panel ===== -->
 <div class="admin-panel" id="adminPanel">
-  <div class="admin-content" style="position:relative;">
+  <div class="admin-content">
     <button class="close-admin" onclick="toggleAdmin()">&times;</button>
     <h2>Wedding Admin</h2>
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="switchAdminTab('rsvps', this)">RSVPs</button>
+      <button class="admin-tab" onclick="switchAdminTab('plus-one', this)">Plus-One List</button>
       <button class="admin-tab" onclick="switchAdminTab('messaging', this)">Messaging</button>
       <button class="admin-tab" onclick="switchAdminTab('announce', this)">Announcements</button>
     </div>
 
     <!-- RSVPs Tab -->
     <div class="admin-section active" id="tab-rsvps">
-      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
-        <strong id="rsvpCount">0</strong> responses received
-        &middot; <strong id="attendingCount">0</strong> attending
-        &middot; <strong id="decliningCount">0</strong> declining
+      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">
+        <strong id="rsvpCount">0</strong> responses &nbsp;·&nbsp;
+        <strong id="attendingCount">0</strong> attending &nbsp;·&nbsp;
+        <strong id="decliningCount">0</strong> declining
       </p>
       <ul class="rsvp-list" id="rsvpList"></ul>
     </div>
 
+    <!-- Plus-One Tab -->
+    <div class="admin-section" id="tab-plus-one">
+      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1.2rem;">
+        Add guests below and toggle whether each person is allowed to bring a plus one.
+        Names are matched case-insensitively when guests RSVP.
+      </p>
+      <div class="guest-list-controls">
+        <input type="text" id="newGuestName" placeholder="Guest full name" onkeydown="if(event.key==='Enter'){event.preventDefault();addGuestToList();}">
+        <button class="btn-sm" onclick="addGuestToList()">Add Guest</button>
+      </div>
+      <table class="guest-list-table" id="guestListTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Plus One</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="guestListBody"></tbody>
+      </table>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1.2rem;">
+        Guests not on this list will see a note that their invitation is for one person only.
+      </p>
+    </div>
+
     <!-- Messaging Tab -->
     <div class="admin-section" id="tab-messaging">
-      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">
         Send email or SMS to your guests. Requires backend configuration (see setup guide).
       </p>
       <div class="msg-form">
@@ -828,12 +979,12 @@ footer .footer-names {
           <select id="msgType">
             <option value="email">Email</option>
             <option value="sms">SMS Text</option>
-            <option value="both">Both Email & SMS</option>
+            <option value="both">Both Email &amp; SMS</option>
           </select>
         </div>
         <div class="form-group">
           <label>Subject (email only)</label>
-          <input type="text" id="msgSubject" placeholder="Update from Po & Jeanine">
+          <input type="text" id="msgSubject" placeholder="Update from Po &amp; Jeanine">
         </div>
         <div class="form-group">
           <label>Message</label>
@@ -846,7 +997,7 @@ footer .footer-names {
 
     <!-- Announcements Tab -->
     <div class="admin-section" id="tab-announce">
-      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+      <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:1rem;">
         Add a new announcement to the website.
       </p>
       <div class="form-group">
@@ -865,7 +1016,7 @@ footer .footer-names {
 <!-- ===== JavaScript ===== -->
 <script>
 // =======================================================
-// CONFIGURATION — Replace with your Firebase project info
+// CONFIGURATION
 // =======================================================
 const FIREBASE_CONFIG = {
   apiKey: "YOUR_API_KEY",
@@ -875,19 +1026,23 @@ const FIREBASE_CONFIG = {
   messagingSenderId: "YOUR_SENDER_ID",
   appId: "YOUR_APP_ID"
 };
-
-// Admin password (change this!)
 const ADMIN_PASSWORD = "poAndJeanine2026";
+const MESSAGING_API = "";
 
-// Cloud Function URLs (set after deploying Firebase Functions)
-const MESSAGING_API = ""; // e.g., https://us-central1-YOUR_PROJECT.cloudfunctions.net/sendMessage
-
-// =======================================================
-// LOCAL STORAGE FALLBACK (works without Firebase)
-// =======================================================
 let db = null;
 let useLocalStorage = true;
 
+// =======================================================
+// HERO — click anywhere to advance
+// =======================================================
+function heroAdvance() {
+  const next = document.getElementById('our-story');
+  if (next) next.scrollIntoView({ behavior: 'smooth' });
+}
+
+// =======================================================
+// LOCAL STORAGE HELPERS
+// =======================================================
 function getLocalRSVPs() {
   try { return JSON.parse(localStorage.getItem('wedding_rsvps') || '[]'); }
   catch { return []; }
@@ -899,23 +1054,128 @@ function saveLocalRSVP(data) {
 }
 
 // =======================================================
-// FIREBASE INITIALIZATION (optional)
+// PLUS-ONE GUEST LIST
 // =======================================================
-async function initFirebase() {
-  if (FIREBASE_CONFIG.apiKey === "YOUR_API_KEY") {
-    console.log("Firebase not configured — using local storage fallback.");
+function getGuestList() {
+  try { return JSON.parse(localStorage.getItem('wedding_guestlist') || '[]'); }
+  catch { return []; }
+}
+function saveGuestList(list) {
+  localStorage.setItem('wedding_guestlist', JSON.stringify(list));
+}
+
+function guestHasPlusOne(name) {
+  if (!name || !name.trim()) return false;
+  const list = getGuestList();
+  const needle = name.trim().toLowerCase();
+  const match = list.find(g => g.name.toLowerCase() === needle);
+  return match ? match.plusOne : false;
+}
+
+function guestIsOnList(name) {
+  if (!name || !name.trim()) return false;
+  const list = getGuestList();
+  const needle = name.trim().toLowerCase();
+  return list.some(g => g.name.toLowerCase() === needle);
+}
+
+function checkPlusOneEligibility() {
+  const name = document.getElementById('guestName').value;
+  const attending = document.getElementById('attending').value;
+  const countGroup = document.getElementById('guestCountGroup');
+  const noNote = document.getElementById('noPlusOneNote');
+
+  if (attending !== 'yes') {
+    countGroup.style.display = 'none';
+    noNote.style.display = 'none';
     return;
   }
+
+  if (!name.trim()) {
+    countGroup.style.display = 'none';
+    noNote.style.display = 'none';
+    return;
+  }
+
+  if (guestHasPlusOne(name)) {
+    countGroup.style.display = 'block';
+    noNote.style.display = 'none';
+  } else if (guestIsOnList(name)) {
+    countGroup.style.display = 'none';
+    noNote.style.display = 'block';
+  } else {
+    // Guest not on list — hide both, no note (let them RSVP, assume solo)
+    countGroup.style.display = 'none';
+    noNote.style.display = 'none';
+  }
+}
+
+// Admin: render guest list table
+function renderGuestList() {
+  const list = getGuestList();
+  const tbody = document.getElementById('guestListBody');
+  if (!tbody) return;
+  tbody.innerHTML = list.map((g, i) => `
+    <tr>
+      <td>${escHtml(g.name)}</td>
+      <td>
+        <input type="checkbox" class="toggle-plus-one" ${g.plusOne ? 'checked' : ''}
+          onchange="toggleGuestPlusOne(${i}, this.checked)">
+      </td>
+      <td>
+        <button class="btn-sm danger" onclick="removeGuest(${i})">Remove</button>
+      </td>
+    </tr>
+  `).join('') || '<tr><td colspan="3" style="color:var(--text-muted);font-size:0.85rem;padding:1rem 0;">No guests added yet.</td></tr>';
+}
+
+function addGuestToList() {
+  const input = document.getElementById('newGuestName');
+  const name = input.value.trim();
+  if (!name) return;
+  const list = getGuestList();
+  if (list.some(g => g.name.toLowerCase() === name.toLowerCase())) {
+    alert('That guest is already on the list.');
+    return;
+  }
+  list.push({ name, plusOne: false });
+  saveGuestList(list);
+  input.value = '';
+  renderGuestList();
+}
+
+function toggleGuestPlusOne(index, value) {
+  const list = getGuestList();
+  if (list[index]) {
+    list[index].plusOne = value;
+    saveGuestList(list);
+  }
+}
+
+function removeGuest(index) {
+  const list = getGuestList();
+  list.splice(index, 1);
+  saveGuestList(list);
+  renderGuestList();
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// =======================================================
+// FIREBASE (optional)
+// =======================================================
+async function initFirebase() {
+  if (FIREBASE_CONFIG.apiKey === "YOUR_API_KEY") return;
   try {
     const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
     const { getFirestore, collection, addDoc, getDocs, query, orderBy } =
       await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-
     const app = initializeApp(FIREBASE_CONFIG);
     db = getFirestore(app);
     useLocalStorage = false;
     window._fb = { collection, addDoc, getDocs, query, orderBy };
-    console.log("Firebase connected successfully.");
   } catch (e) {
     console.warn("Firebase init failed, using local storage:", e);
   }
@@ -924,11 +1184,6 @@ async function initFirebase() {
 // =======================================================
 // RSVP FORM
 // =======================================================
-document.getElementById('attending').addEventListener('change', function() {
-  document.getElementById('guestCountGroup').style.display =
-    this.value === 'yes' ? 'block' : 'none';
-});
-
 async function submitRSVP(e) {
   e.preventDefault();
   const btn = document.getElementById('rsvpBtn');
@@ -936,22 +1191,25 @@ async function submitRSVP(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
 
+  const attendingVal = document.getElementById('attending').value;
+  const name = document.getElementById('guestName').value.trim();
+  const hasPlusOne = guestHasPlusOne(name);
+  const countShown = document.getElementById('guestCountGroup').style.display !== 'none';
+
   const data = {
-    name: document.getElementById('guestName').value.trim(),
+    name,
     email: document.getElementById('guestEmail').value.trim(),
     phone: document.getElementById('guestPhone').value.trim(),
-    attending: document.getElementById('attending').value,
-    guestCount: document.getElementById('attending').value === 'yes'
-      ? parseInt(document.getElementById('guestCount').value) : 0,
+    attending: attendingVal,
+    guestCount: (attendingVal === 'yes' && countShown && hasPlusOne)
+      ? parseInt(document.getElementById('guestCount').value) : 1,
     dietary: document.getElementById('dietary').value.trim(),
     message: document.getElementById('message').value.trim()
   };
 
   try {
     if (!useLocalStorage && db) {
-      await window._fb.addDoc(window._fb.collection(db, 'rsvps'), {
-        ...data, timestamp: new Date()
-      });
+      await window._fb.addDoc(window._fb.collection(db, 'rsvps'), { ...data, timestamp: new Date() });
     } else {
       saveLocalRSVP(data);
     }
@@ -961,10 +1219,10 @@ async function submitRSVP(e) {
       : `Thank you, ${data.name}. We'll miss you and hope to see you soon!`;
     e.target.reset();
     document.getElementById('guestCountGroup').style.display = 'none';
+    document.getElementById('noPlusOneNote').style.display = 'none';
   } catch (err) {
     msg.className = 'form-message error';
     msg.textContent = 'Something went wrong. Please try again or contact us directly.';
-    console.error(err);
   }
   btn.disabled = false;
   btn.textContent = 'Send Your RSVP';
@@ -976,10 +1234,7 @@ async function submitRSVP(e) {
 document.addEventListener('keydown', function(e) {
   if (e.ctrlKey && e.shiftKey && e.key === 'A') {
     const pw = prompt('Enter admin password:');
-    if (pw === ADMIN_PASSWORD) {
-      toggleAdmin();
-      loadRSVPs();
-    }
+    if (pw === ADMIN_PASSWORD) { toggleAdmin(); loadRSVPs(); renderGuestList(); }
   }
 });
 
@@ -992,12 +1247,13 @@ function switchAdminTab(tab, btn) {
   document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
   btn.classList.add('active');
+  if (tab === 'plus-one') renderGuestList();
+  if (tab === 'rsvps') loadRSVPs();
 }
 
 async function loadRSVPs() {
   const list = document.getElementById('rsvpList');
   let rsvps = [];
-
   if (!useLocalStorage && db) {
     const snap = await window._fb.getDocs(
       window._fb.query(window._fb.collection(db, 'rsvps'), window._fb.orderBy('timestamp', 'desc'))
@@ -1006,84 +1262,68 @@ async function loadRSVPs() {
   } else {
     rsvps = getLocalRSVPs().reverse();
   }
-
   const attending = rsvps.filter(r => r.attending === 'yes');
   const declining = rsvps.filter(r => r.attending === 'no');
-
   document.getElementById('rsvpCount').textContent = rsvps.length;
   document.getElementById('attendingCount').textContent = attending.length;
   document.getElementById('decliningCount').textContent = declining.length;
-
   list.innerHTML = rsvps.map(r => `
     <li>
-      <span><strong>${r.name}</strong> ${r.guestCount > 1 ? '(+' + (r.guestCount-1) + ')' : ''}</span>
+      <span><strong>${escHtml(r.name)}</strong>${r.guestCount > 1 ? ' <em>(+' + (r.guestCount - 1) + ')</em>' : ''}</span>
       <span class="${r.attending === 'yes' ? 'attending' : 'not-attending'}">
         ${r.attending === 'yes' ? 'Attending' : 'Declined'}
       </span>
     </li>
-  `).join('');
+  `).join('') || '<li style="color:var(--text-muted);font-size:0.85rem;">No RSVPs yet.</li>';
 }
 
 // =======================================================
-// MESSAGING (requires backend)
+// MESSAGING
 // =======================================================
 async function sendMessage() {
   const status = document.getElementById('msgStatus');
   if (!MESSAGING_API) {
     status.className = 'form-message error';
-    status.textContent = 'Messaging API not configured. See the setup guide to deploy Firebase Cloud Functions.';
+    status.textContent = 'Messaging API not configured. See the setup guide.';
     return;
   }
-
   const payload = {
     recipients: document.querySelector('input[name="msgRecipient"]:checked').value,
     type: document.getElementById('msgType').value,
     subject: document.getElementById('msgSubject').value,
     body: document.getElementById('msgBody').value
   };
-
   try {
     const res = await fetch(MESSAGING_API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    if (res.ok) {
-      status.className = 'form-message success';
-      status.textContent = 'Messages sent successfully!';
-    } else throw new Error('Send failed');
-  } catch (err) {
-    status.className = 'form-message error';
-    status.textContent = 'Failed to send. Check your backend configuration.';
+    if (res.ok) { status.className = 'form-message success'; status.textContent = 'Messages sent!'; }
+    else throw new Error();
+  } catch {
+    status.className = 'form-message error'; status.textContent = 'Failed to send. Check your backend.';
   }
 }
 
 // =======================================================
-// ANNOUNCEMENTS (admin)
+// ANNOUNCEMENTS
 // =======================================================
 function addAnnouncement() {
   const title = document.getElementById('announceTitle').value.trim();
   const body = document.getElementById('announceBody').value.trim();
   if (!title || !body) return;
-
-  const container = document.getElementById('announcements-list');
   const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-  const html = `
+  document.getElementById('announcements-list').insertAdjacentHTML('afterbegin', `
     <div class="announcement fade-in visible">
       <p class="announcement-date">${today}</p>
-      <h3>${title}</h3>
-      <p>${body}</p>
+      <h3>${escHtml(title)}</h3>
+      <p>${escHtml(body)}</p>
     </div>
-  `;
-  container.insertAdjacentHTML('afterbegin', html);
+  `);
   document.getElementById('announceTitle').value = '';
   document.getElementById('announceBody').value = '';
-
-  // Save to Firebase if connected
   if (!useLocalStorage && db) {
-    window._fb.addDoc(window._fb.collection(db, 'announcements'), {
-      title, body, date: today, timestamp: new Date()
-    });
+    window._fb.addDoc(window._fb.collection(db, 'announcements'), { title, body, date: today, timestamp: new Date() });
   }
 }
 
@@ -1092,23 +1332,15 @@ function addAnnouncement() {
 // =======================================================
 function updateCountdown() {
   const wedding = new Date('2026-08-23T16:00:00-04:00');
-  const now = new Date();
-  const diff = wedding - now;
-
+  const diff = wedding - new Date();
   if (diff <= 0) {
     document.getElementById('countdown').innerHTML = '<p style="color:var(--gold);font-size:1.2rem;">Today is the day!</p>';
     return;
   }
-
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hrs  = Math.floor((diff / (1000*60*60)) % 24);
-  const mins = Math.floor((diff / (1000*60)) % 60);
-  const secs = Math.floor((diff / 1000) % 60);
-
-  document.getElementById('cd-days').textContent = days;
-  document.getElementById('cd-hours').textContent = String(hrs).padStart(2,'0');
-  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
-  document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+  document.getElementById('cd-hours').textContent = String(Math.floor(diff / 3600000) % 24).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(Math.floor(diff / 60000) % 60).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(Math.floor(diff / 1000) % 60).padStart(2,'0');
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
@@ -1116,32 +1348,10 @@ updateCountdown();
 // =======================================================
 // SCROLL ANIMATIONS
 // =======================================================
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Nav scroll effect + active section
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-
-  // Active section highlight
-  const sections = document.querySelectorAll('section[id]');
-  const scrollY = window.scrollY + 100;
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    const height = sec.offsetHeight;
-    const id = sec.getAttribute('id');
-    const link = document.querySelector(`nav a[href="#${id}"]`);
-    if (link) {
-      link.classList.toggle('active', scrollY >= top && scrollY < top + height);
-    }
-  });
-});
 
 // Init
 initFirebase();
