@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Po & Jeanine — August 23, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --charcoal: #2D2D2D;
+  --charcoal-light: #3D3D3D;
+  --gold: #C4A35A;
+  --gold-light: #D4BC7C;
+  --gold-pale: #F5ECD7;
+  --cream: #FAF8F5;
+  --white: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --text-muted: #6B6B6B;
+  --sage: #8B9A7B;
+  --blush: #D4A89A;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--text-dark);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Navigation ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(45,45,45,0.95);
+  backdrop-filter: blur(10px);
+  padding: 0 2rem;
+  transition: all 0.3s ease;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+nav li a {
+  display: block;
+  padding: 1.1rem 1.2rem;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+nav li a:hover, nav li a.active { color: var(--white); }
+
+/* Mobile nav */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 1rem; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--gold-light); margin: 5px 0; transition: 0.3s; }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(196,163,90,0.12) 0%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-pretext {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+.hero h1 .amp {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 300;
+}
+.hero-date {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.hero-venue {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 3rem;
+}
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 3rem;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.countdown-item { text-align: center; }
+.countdown-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.countdown-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.3rem;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+.section-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.5rem auto 0;
+}
+
+/* ===== Story / Our Story ===== */
+#our-story { background: var(--white); max-width: 100%; padding: 6rem 2rem; }
+#our-story .story-inner { max-width: 700px; margin: 0 auto; }
+.story-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: var(--charcoal-light);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===== Details ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.detail-card {
+  background: var(--white);
+  border: 1px solid rgba(196,163,90,0.2);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.detail-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+.detail-card svg { margin-bottom: 1.2rem; }
+.detail-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.8rem;
+}
+.detail-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== Announcements ===== */
+#announcements { background: var(--white); max-width: 100%; padding: 6rem 2rem; }
+.announcements-inner { max-width: 700px; margin: 0 auto; }
+.announcement {
+  border-left: 2px solid var(--gold);
+  padding: 1.5rem 0 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.announcement::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 1.8rem;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.announcement-date {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.announcement h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+.announcement p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* ===== RSVP ===== */
+#rsvp { text-align: center; }
+.rsvp-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: var(--white);
+  color: var(--charcoal);
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%;
+}
+.btn-primary:hover { background: var(--charcoal); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  display: none;
+}
+.form-message.success { display: block; background: #e8f5e9; color: #2e7d32; }
+.form-message.error { display: block; background: #fbe9e7; color: #c62828; }
+
+/* ===== Illustrations Section ===== */
+#celebrate { background: var(--charcoal); max-width: 100%; padding: 6rem 2rem; color: var(--white); }
+.celebrate-inner { max-width: 900px; margin: 0 auto; }
+.illustration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+.illustration-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.illustration-item svg { margin-bottom: 1.2rem; }
+.illustration-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.illustration-item p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--charcoal);
+  border-top: 1px solid rgba(196,163,90,0.2);
+  text-align: center;
+  padding: 3rem 2rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+footer .footer-names {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Admin Panel (hidden by default) ===== */
+.admin-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+}
+.admin-panel.visible { display: flex; }
+.admin-content {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 2.5rem;
+  max-width: 700px;
+  width: 95%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.admin-content h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--charcoal);
+  margin-bottom: 1.5rem;
+}
+.admin-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+.admin-tab {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  background: var(--white);
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  transition: all 0.3s;
+}
+.admin-tab.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+.rsvp-list { list-style: none; }
+.rsvp-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+.rsvp-list .attending { color: #2e7d32; }
+.rsvp-list .not-attending { color: #c62828; }
+.close-admin {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* Messaging form in admin */
+.msg-form { margin-top: 1rem; }
+.msg-form .form-group { margin-bottom: 1rem; }
+.msg-recipients {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.msg-recipients label {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav ul { display: none; flex-direction: column; padding: 1rem 0; }
+  nav ul.open { display: flex; }
+  .nav-toggle { display: block; position: absolute; right: 1rem; top: 0.6rem; }
+  .countdown { gap: 1rem; }
+  .countdown-number { font-size: 1.8rem; }
+  .illustration-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .details-grid { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.5rem; }
+}
+
+/* ===== Animations ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav id="mainNav">
+  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#our-story">Our Story</a></li>
+    <li><a href="#details">Details</a></li>
+    <li><a href="#announcements">Updates</a></li>
+    <li><a href="#celebrate">Celebrate</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-pretext">Together with their families</p>
+    <h1>Po <span class="amp">&</span> Jeanine</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-date">SUNDAY, AUGUST 23, 2026</p>
+    <p class="hero-venue">The Great American Beer Hall &middot; Malden, MA</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-days">---</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-hours">--</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-mins">--</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-secs">--</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero decorative SVG -->
+  <svg style="position:absolute;bottom:0;left:0;right:0;width:100%;height:80px;" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)" opacity="1"/>
+  </svg>
+</section>
+
+<!-- ===== Our Story ===== -->
+<section id="our-story">
+  <div class="story-inner fade-in">
+    <div class="section-header">
+      <p class="section-label">Our Journey</p>
+      <h2 class="section-title">How It All Began</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="story-text">
+      What started with shared laughter and a love for great food
+      has grown into a lifetime of adventures together. From favorite
+      neighborhood spots to our families' dinner tables, the best
+      moments have always been around the people and flavors we love most.
+      Now we're ready to celebrate the next chapter — and we want you there.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Event Details ===== -->
+<section id="details">
+  <div class="section-header fade-in">
+    <p class="section-label">The Details</p>
+    <h2 class="section-title">When & Where</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="details-grid">
+    <div class="detail-card fade-in">
+      <!-- Calendar SVG -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <rect x="6" y="10" width="36" height="32" rx="3" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+        <line x1="6" y1="20" x2="42" y2="20" stroke="var(--gold)" stroke-width="1.5"/>
+        <line x1="16" y1="6" x2="16" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="32" y1="6" x2="32" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="24" y="35" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="var(--gold)">23</text>
+      </svg>
+      <h3>The Date</h3>
+      <p>Sunday, August 23, 2026<br>Ceremony at 4:00 PM<br>Reception to follow</p>
+    </div>
+    <div class="detail-card fade-in">
+      <!-- Location pin SVG -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4C16.268 4 10 10.268 10 18C10 28 24 44 24 44C24 44 38 28 38 18C38 10.268 31.732 4 24 4Z" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+        <circle cx="24" cy="18" r="5" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <h3>The Venue</h3>
+      <p>The Great American Beer Hall<br>Malden, Massachusetts</p>
+    </div>
+    <div class="detail-card fade-in">
+      <!-- Utensils SVG -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M18 6V18C18 20.2 16.2 22 14 22H13V42" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <line x1="13" y1="6" x2="13" y2="14" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M35 6C35 6 38 10 38 16C38 20 35 22 35 22V42" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <h3>The Feast</h3>
+      <p>Dinner, drinks & dancing<br>Craft beer and curated bites<br>celebrating our favorite flavors</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Announcements ===== -->
+<section id="announcements">
+  <div class="announcements-inner">
+    <div class="section-header fade-in">
+      <p class="section-label">Latest News</p>
+      <h2 class="section-title">Announcements</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div id="announcements-list">
+      <div class="announcement fade-in">
+        <p class="announcement-date">March 26, 2026</p>
+        <h3>Our Website is Live!</h3>
+        <p>Welcome to our wedding website! We're so excited to share this journey with you. Keep checking back for updates as the big day approaches.</p>
+      </div>
+      <div class="announcement fade-in">
+        <p class="announcement-date">March 26, 2026</p>
+        <h3>Save the Date</h3>
+        <p>Mark your calendars for Sunday, August 23, 2026. Formal invitations will follow soon. We can't wait to celebrate with you!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Celebrate Section with Illustrations ===== -->
+<section id="celebrate">
+  <div class="celebrate-inner">
+    <div class="section-header fade-in">
+      <p class="section-label" style="color:var(--gold-light)">What Awaits</p>
+      <h2 class="section-title" style="color:var(--white)">An Evening of Joy</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="illustration-grid">
+      <!-- Foodie Illustration -->
+      <div class="illustration-item fade-in">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <!-- Plate -->
+          <ellipse cx="60" cy="75" rx="45" ry="12" stroke="var(--gold)" stroke-width="1.2" opacity="0.3"/>
+          <ellipse cx="60" cy="65" rx="38" ry="28" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+          <ellipse cx="60" cy="65" rx="28" ry="20" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
+          <!-- Steam lines -->
+          <path d="M45 40 Q47 32 45 24" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
+            <animate attributeName="d" values="M45 40 Q47 32 45 24;M45 40 Q43 32 45 24;M45 40 Q47 32 45 24" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M60 36 Q62 28 60 20" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
+            <animate attributeName="d" values="M60 36 Q62 28 60 20;M60 36 Q58 28 60 20;M60 36 Q62 28 60 20" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M75 40 Q77 32 75 24" stroke="var(--gold-light)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6">
+            <animate attributeName="d" values="M75 40 Q77 32 75 24;M75 40 Q73 32 75 24;M75 40 Q77 32 75 24" dur="3.5s" repeatCount="indefinite"/>
+          </path>
+          <!-- Beer glass -->
+          <rect x="85" y="42" width="16" height="28" rx="2" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <path d="M101 50 Q108 52 108 58 Q108 64 101 66" stroke="var(--gold)" stroke-width="1" fill="none"/>
+          <rect x="87" y="45" width="12" height="8" rx="1" fill="var(--gold)" opacity="0.15"/>
+          <!-- Foam bubbles -->
+          <circle cx="90" cy="44" r="2" fill="var(--gold)" opacity="0.2"/>
+          <circle cx="95" cy="43" r="1.5" fill="var(--gold)" opacity="0.15"/>
+          <circle cx="98" cy="44" r="1" fill="var(--gold)" opacity="0.2"/>
+        </svg>
+        <h3>Feast</h3>
+        <p>Curated bites and craft brews — a celebration of the flavors we love most</p>
+      </div>
+      <!-- Friends Illustration -->
+      <div class="illustration-item fade-in">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <!-- Three people toasting -->
+          <!-- Person left -->
+          <circle cx="35" cy="42" r="10" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <path d="M25 62 Q25 52 35 52 Q45 52 45 62" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <line x1="45" y1="55" x2="52" y2="35" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- Person center -->
+          <circle cx="60" cy="38" r="11" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+          <path d="M48 60 Q48 49 60 49 Q72 49 72 60" stroke="var(--gold)" stroke-width="1.5" fill="none"/>
+          <!-- Person right -->
+          <circle cx="85" cy="42" r="10" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <path d="M75 62 Q75 52 85 52 Q95 52 95 62" stroke="var(--gold)" stroke-width="1.3" fill="none"/>
+          <line x1="75" y1="55" x2="68" y2="35" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- Glasses clinking -->
+          <rect x="49" y="22" width="8" height="16" rx="2" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(-15 53 30)"/>
+          <rect x="63" y="22" width="8" height="16" rx="2" stroke="var(--gold-light)" stroke-width="1" fill="none" transform="rotate(15 67 30)"/>
+          <!-- Sparkle -->
+          <path d="M60 20 L61 17 L62 20 L65 21 L62 22 L61 25 L60 22 L57 21 Z" fill="var(--gold)" opacity="0.6">
+            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <!-- Ground line -->
+          <line x1="20" y1="75" x2="100" y2="75" stroke="var(--gold)" stroke-width="0.5" opacity="0.3"/>
+          <!-- Hearts -->
+          <path d="M30 78 Q30 75 33 75 Q36 75 36 78 Q36 82 33 85 Q30 82 30 78Z" fill="var(--gold)" opacity="0.2"/>
+          <path d="M82 78 Q82 75 85 75 Q88 75 88 78 Q88 82 85 85 Q82 82 82 78Z" fill="var(--gold)" opacity="0.2"/>
+        </svg>
+        <h3>Friends</h3>
+        <p>Our favorite people, all in one room — the ones who made us who we are</p>
+      </div>
+      <!-- Family Illustration -->
+      <div class="illustration-item fade-in">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <!-- Tree trunk -->
+          <rect x="55" y="55" width="10" height="35" rx="2" fill="var(--gold)" opacity="0.15"/>
+          <rect x="55" y="55" width="10" height="35" rx="2" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <!-- Branches -->
+          <path d="M60 55 Q40 50 30 35" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <path d="M60 55 Q80 50 90 35" stroke="var(--gold)" stroke-width="1.2" fill="none"/>
+          <path d="M60 45 Q45 40 35 28" stroke="var(--gold)" stroke-width="1" fill="none"/>
+          <path d="M60 45 Q75 40 85 28" stroke="var(--gold)" stroke-width="1" fill="none"/>
+          <path d="M60 38 Q50 32 42 22" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+          <path d="M60 38 Q70 32 78 22" stroke="var(--gold)" stroke-width="0.8" fill="none"/>
+          <!-- Leaves / circles (family members) -->
+          <circle cx="30" cy="33" r="6" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="90" cy="33" r="6" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="35" cy="25" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="85" cy="25" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="42" cy="19" r="4" stroke="var(--gold)" stroke-width="0.8" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="78" cy="19" r="4" stroke="var(--gold)" stroke-width="0.8" fill="var(--gold)" fill-opacity="0.1"/>
+          <circle cx="60" cy="14" r="5" stroke="var(--gold)" stroke-width="1" fill="var(--gold)" fill-opacity="0.15"/>
+          <!-- Heart at top -->
+          <path d="M57 12 Q57 9 60 9 Q63 9 63 12 Q63 15 60 18 Q57 15 57 12Z" fill="var(--gold)" opacity="0.5"/>
+          <!-- Roots -->
+          <path d="M57 90 Q50 95 42 98" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
+          <path d="M63 90 Q70 95 78 98" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
+          <path d="M60 90 Q60 96 60 100" stroke="var(--gold)" stroke-width="0.8" fill="none" opacity="0.4"/>
+        </svg>
+        <h3>Family</h3>
+        <p>Two families becoming one — rooted in love, growing together</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RSVP ===== -->
+<section id="rsvp">
+  <div class="section-header fade-in">
+    <p class="section-label">Respond</p>
+    <h2 class="section-title">RSVP</h2>
+    <div class="section-divider"></div>
+  </div>
+  <p style="color:var(--text-muted);margin-bottom:2.5rem;font-size:0.95rem;">
+    Please let us know if you can make it by <strong>July 1, 2026</strong>.
+  </p>
+  <form class="rsvp-form fade-in" id="rsvpForm" onsubmit="submitRSVP(event)">
+    <div class="form-group">
+      <label for="guestName">Full Name</label>
+      <input type="text" id="guestName" name="name" required placeholder="Your full name">
+    </div>
+    <div class="form-group">
+      <label for="guestEmail">Email Address</label>
+      <input type="email" id="guestEmail" name="email" required placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label for="guestPhone">Phone Number (optional)</label>
+      <input type="tel" id="guestPhone" name="phone" placeholder="(555) 123-4567">
+    </div>
+    <div class="form-group">
+      <label for="attending">Will You Be Joining Us?</label>
+      <select id="attending" name="attending" required>
+        <option value="">Please select...</option>
+        <option value="yes">Joyfully Accept</option>
+        <option value="no">Regretfully Decline</option>
+      </select>
+    </div>
+    <div class="form-group" id="guestCountGroup" style="display:none;">
+      <label for="guestCount">Number of Guests (including yourself)</label>
+      <select id="guestCount" name="guestCount">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="dietary">Dietary Restrictions</label>
+      <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, gluten-free, allergies, etc.">
+    </div>
+    <div class="form-group">
+      <label for="message">A Note for Po & Jeanine (optional)</label>
+      <textarea id="message" name="message" placeholder="Share a wish, memory, or song request..."></textarea>
+    </div>
+    <button type="submit" class="btn-primary" id="rsvpBtn">Send Your RSVP</button>
+    <div class="form-message" id="formMessage"></div>
+  </form>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p class="footer-names">P <span style="color:var(--gold);font-style:italic;">&</span> J</p>
+  <p>August 23, 2026 &middot; Malden, MA</p>
+</footer>
+
+<!-- ===== Admin Panel ===== -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-content" style="position:relative;">
+    <button class="close-admin" onclick="toggleAdmin()">&times;</button>
+    <h2>Wedding Admin</h2>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('rsvps', this)">RSVPs</button>
+      <button class="admin-tab" onclick="switchAdminTab('messaging', this)">Messaging</button>
+      <button class="admin-tab" onclick="switchAdminTab('announce', this)">Announcements</button>
+    </div>
+
+    <!-- RSVPs Tab -->
+    <div class="admin-section active" id="tab-rsvps">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        <strong id="rsvpCount">0</strong> responses received
+        &middot; <strong id="attendingCount">0</strong> attending
+        &middot; <strong id="decliningCount">0</strong> declining
+      </p>
+      <ul class="rsvp-list" id="rsvpList"></ul>
+    </div>
+
+    <!-- Messaging Tab -->
+    <div class="admin-section" id="tab-messaging">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        Send email or SMS to your guests. Requires backend configuration (see setup guide).
+      </p>
+      <div class="msg-form">
+        <div class="msg-recipients">
+          <label><input type="radio" name="msgRecipient" value="all" checked> All guests</label>
+          <label><input type="radio" name="msgRecipient" value="attending"> Attending only</label>
+          <label><input type="radio" name="msgRecipient" value="not-responded"> Not responded</label>
+        </div>
+        <div class="form-group">
+          <label>Message Type</label>
+          <select id="msgType">
+            <option value="email">Email</option>
+            <option value="sms">SMS Text</option>
+            <option value="both">Both Email & SMS</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subject (email only)</label>
+          <input type="text" id="msgSubject" placeholder="Update from Po & Jeanine">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="msgBody" placeholder="Write your message to guests..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="sendMessage()" style="background:var(--charcoal)">Send Message</button>
+        <div class="form-message" id="msgStatus" style="margin-top:1rem;"></div>
+      </div>
+    </div>
+
+    <!-- Announcements Tab -->
+    <div class="admin-section" id="tab-announce">
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem;">
+        Add a new announcement to the website.
+      </p>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="announceTitle" placeholder="Announcement title">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="announceBody" placeholder="Announcement details..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="addAnnouncement()" style="background:var(--charcoal)">Post Announcement</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== JavaScript ===== -->
+<script>
+// =======================================================
+// CONFIGURATION — Replace with your Firebase project info
+// =======================================================
+const FIREBASE_CONFIG = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Admin password (change this!)
+const ADMIN_PASSWORD = "poAndJeanine2026";
+
+// Cloud Function URLs (set after deploying Firebase Functions)
+const MESSAGING_API = ""; // e.g., https://us-central1-YOUR_PROJECT.cloudfunctions.net/sendMessage
+
+// =======================================================
+// LOCAL STORAGE FALLBACK (works without Firebase)
+// =======================================================
+let db = null;
+let useLocalStorage = true;
+
+function getLocalRSVPs() {
+  try { return JSON.parse(localStorage.getItem('wedding_rsvps') || '[]'); }
+  catch { return []; }
+}
+function saveLocalRSVP(data) {
+  const rsvps = getLocalRSVPs();
+  rsvps.push({ ...data, timestamp: new Date().toISOString() });
+  localStorage.setItem('wedding_rsvps', JSON.stringify(rsvps));
+}
+
+// =======================================================
+// FIREBASE INITIALIZATION (optional)
+// =======================================================
+async function initFirebase() {
+  if (FIREBASE_CONFIG.apiKey === "YOUR_API_KEY") {
+    console.log("Firebase not configured — using local storage fallback.");
+    return;
+  }
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
+    const { getFirestore, collection, addDoc, getDocs, query, orderBy } =
+      await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
+
+    const app = initializeApp(FIREBASE_CONFIG);
+    db = getFirestore(app);
+    useLocalStorage = false;
+    window._fb = { collection, addDoc, getDocs, query, orderBy };
+    console.log("Firebase connected successfully.");
+  } catch (e) {
+    console.warn("Firebase init failed, using local storage:", e);
+  }
+}
+
+// =======================================================
+// RSVP FORM
+// =======================================================
+document.getElementById('attending').addEventListener('change', function() {
+  document.getElementById('guestCountGroup').style.display =
+    this.value === 'yes' ? 'block' : 'none';
+});
+
+async function submitRSVP(e) {
+  e.preventDefault();
+  const btn = document.getElementById('rsvpBtn');
+  const msg = document.getElementById('formMessage');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const data = {
+    name: document.getElementById('guestName').value.trim(),
+    email: document.getElementById('guestEmail').value.trim(),
+    phone: document.getElementById('guestPhone').value.trim(),
+    attending: document.getElementById('attending').value,
+    guestCount: document.getElementById('attending').value === 'yes'
+      ? parseInt(document.getElementById('guestCount').value) : 0,
+    dietary: document.getElementById('dietary').value.trim(),
+    message: document.getElementById('message').value.trim()
+  };
+
+  try {
+    if (!useLocalStorage && db) {
+      await window._fb.addDoc(window._fb.collection(db, 'rsvps'), {
+        ...data, timestamp: new Date()
+      });
+    } else {
+      saveLocalRSVP(data);
+    }
+    msg.className = 'form-message success';
+    msg.textContent = data.attending === 'yes'
+      ? `Thank you, ${data.name}! We can't wait to celebrate with you!`
+      : `Thank you, ${data.name}. We'll miss you and hope to see you soon!`;
+    e.target.reset();
+    document.getElementById('guestCountGroup').style.display = 'none';
+  } catch (err) {
+    msg.className = 'form-message error';
+    msg.textContent = 'Something went wrong. Please try again or contact us directly.';
+    console.error(err);
+  }
+  btn.disabled = false;
+  btn.textContent = 'Send Your RSVP';
+}
+
+// =======================================================
+// ADMIN PANEL
+// =======================================================
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+    const pw = prompt('Enter admin password:');
+    if (pw === ADMIN_PASSWORD) {
+      toggleAdmin();
+      loadRSVPs();
+    }
+  }
+});
+
+function toggleAdmin() {
+  document.getElementById('adminPanel').classList.toggle('visible');
+}
+
+function switchAdminTab(tab, btn) {
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+async function loadRSVPs() {
+  const list = document.getElementById('rsvpList');
+  let rsvps = [];
+
+  if (!useLocalStorage && db) {
+    const snap = await window._fb.getDocs(
+      window._fb.query(window._fb.collection(db, 'rsvps'), window._fb.orderBy('timestamp', 'desc'))
+    );
+    snap.forEach(doc => rsvps.push(doc.data()));
+  } else {
+    rsvps = getLocalRSVPs().reverse();
+  }
+
+  const attending = rsvps.filter(r => r.attending === 'yes');
+  const declining = rsvps.filter(r => r.attending === 'no');
+
+  document.getElementById('rsvpCount').textContent = rsvps.length;
+  document.getElementById('attendingCount').textContent = attending.length;
+  document.getElementById('decliningCount').textContent = declining.length;
+
+  list.innerHTML = rsvps.map(r => `
+    <li>
+      <span><strong>${r.name}</strong> ${r.guestCount > 1 ? '(+' + (r.guestCount-1) + ')' : ''}</span>
+      <span class="${r.attending === 'yes' ? 'attending' : 'not-attending'}">
+        ${r.attending === 'yes' ? 'Attending' : 'Declined'}
+      </span>
+    </li>
+  `).join('');
+}
+
+// =======================================================
+// MESSAGING (requires backend)
+// =======================================================
+async function sendMessage() {
+  const status = document.getElementById('msgStatus');
+  if (!MESSAGING_API) {
+    status.className = 'form-message error';
+    status.textContent = 'Messaging API not configured. See the setup guide to deploy Firebase Cloud Functions.';
+    return;
+  }
+
+  const payload = {
+    recipients: document.querySelector('input[name="msgRecipient"]:checked').value,
+    type: document.getElementById('msgType').value,
+    subject: document.getElementById('msgSubject').value,
+    body: document.getElementById('msgBody').value
+  };
+
+  try {
+    const res = await fetch(MESSAGING_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      status.className = 'form-message success';
+      status.textContent = 'Messages sent successfully!';
+    } else throw new Error('Send failed');
+  } catch (err) {
+    status.className = 'form-message error';
+    status.textContent = 'Failed to send. Check your backend configuration.';
+  }
+}
+
+// =======================================================
+// ANNOUNCEMENTS (admin)
+// =======================================================
+function addAnnouncement() {
+  const title = document.getElementById('announceTitle').value.trim();
+  const body = document.getElementById('announceBody').value.trim();
+  if (!title || !body) return;
+
+  const container = document.getElementById('announcements-list');
+  const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  const html = `
+    <div class="announcement fade-in visible">
+      <p class="announcement-date">${today}</p>
+      <h3>${title}</h3>
+      <p>${body}</p>
+    </div>
+  `;
+  container.insertAdjacentHTML('afterbegin', html);
+  document.getElementById('announceTitle').value = '';
+  document.getElementById('announceBody').value = '';
+
+  // Save to Firebase if connected
+  if (!useLocalStorage && db) {
+    window._fb.addDoc(window._fb.collection(db, 'announcements'), {
+      title, body, date: today, timestamp: new Date()
+    });
+  }
+}
+
+// =======================================================
+// COUNTDOWN
+// =======================================================
+function updateCountdown() {
+  const wedding = new Date('2026-08-23T16:00:00-04:00');
+  const now = new Date();
+  const diff = wedding - now;
+
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<p style="color:var(--gold);font-size:1.2rem;">Today is the day!</p>';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hrs  = Math.floor((diff / (1000*60*60)) % 24);
+  const mins = Math.floor((diff / (1000*60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-hours').textContent = String(hrs).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// =======================================================
+// SCROLL ANIMATIONS
+// =======================================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Nav scroll effect + active section
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+
+  // Active section highlight
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY = window.scrollY + 100;
+  sections.forEach(sec => {
+    const top = sec.offsetTop;
+    const height = sec.offsetHeight;
+    const id = sec.getAttribute('id');
+    const link = document.querySelector(`nav a[href="#${id}"]`);
+    if (link) {
+      link.classList.toggle('active', scrollY >= top && scrollY < top + height);
+    }
+  });
+});
+
+// Init
+initFirebase();
+</script>
+</body>
+</html>
