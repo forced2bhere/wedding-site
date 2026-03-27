@@ -22,8 +22,7 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'Montserrat', 'Helvetica Neue', sans-serif;
 
-  /* Large realistic white brick pattern matching the photo */
-  --brick-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='120'%3E%3Crect width='480' height='120' fill='%23d9d4cc'/%3E%3Crect x='2' y='2' width='236' height='54' rx='0.5' fill='%23f8f7f5'/%3E%3Crect x='242' y='2' width='236' height='54' rx='0.5' fill='%23f5f4f1'/%3E%3Crect x='-118' y='62' width='236' height='54' rx='0.5' fill='%23f6f5f2'/%3E%3Crect x='122' y='62' width='236' height='54' rx='0.5' fill='%23f8f7f5'/%3E%3Crect x='362' y='62' width='236' height='54' rx='0.5' fill='%23f5f4f1'/%3E%3C/svg%3E");
+  --brick-bg: url("brick-bg.jpg");
 }
 
 html { scroll-behavior: smooth; }
@@ -35,9 +34,11 @@ body {
   line-height: 1.7;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  background-color: #d9d4cc;
+  background-color: #f0ede8;
   background-image: var(--brick-bg);
-  background-size: 480px 120px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* ============================================================
@@ -260,25 +261,34 @@ body {
 }
 
 /* ============================================================
-   CONTENT SECTIONS — white cards on brick
+   CONTENT SECTIONS — floating cards over brick photo
    ============================================================ */
 .section-card {
-  background: var(--white);
-  margin: 8px 0;
+  background: transparent;
+  padding: 2rem 1rem;
 }
-.section-card.cream  { background: var(--cream); }
-.section-card.dark   { background: #1c1814; color: var(--white); }
+.section-card.cream  { background: transparent; }
+.section-card.dark   { background: transparent; color: var(--white); padding: 2rem 1rem; }
 
-.section-card:first-of-type {
-  border-radius: 16px 16px 0 0;
-}
+.section-card:first-of-type { border-radius: 0; }
 
 .sec-inner {
   max-width: 720px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
-@media (min-width: 500px) { .sec-inner { padding: 5rem 2.5rem; } }
+.dark .sec-inner {
+  background: rgba(26, 22, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+@media (min-width: 500px) { .sec-inner { padding: 4rem 3rem; } }
 
 .sec-label {
   font-size: 0.6rem;
@@ -336,9 +346,9 @@ body {
   border-radius: 6px;
   padding: 1.8rem 1.2rem;
   text-align: center;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.5);
 }
-.cream .tile { background: #f1ede7; }
+.cream .tile { background: rgba(255, 255, 255, 0.5); }
 
 .tile svg { margin-bottom: 0.9rem; }
 .tile h3 {
@@ -404,7 +414,7 @@ body {
   font-size: 0.88rem;
   font-weight: 400;
   transition: all 0.2s;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.5);
 }
 .registry-btn:hover { border-color: var(--gold); }
 .registry-btn svg { opacity: 0.4; }
@@ -471,7 +481,7 @@ body {
   width:100%; padding:0.82rem 1rem;
   font-family:var(--font-sans); font-size:0.9rem; font-weight:300;
   border:1px solid #ddd; border-radius:8px;
-  background:var(--white); color:var(--dark);
+  background:rgba(255,255,255,0.5); color:var(--dark);
   transition:border-color 0.2s; -webkit-appearance:none;
 }
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus {
