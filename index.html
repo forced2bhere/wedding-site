@@ -70,13 +70,14 @@ body {
 }
 
 .nav-brand {
-  font-family: var(--font-sans);
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-style: normal;
   font-size: 0.85rem;
   font-weight: 200;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(30,25,20,0.8);
+  -webkit-text-stroke: 1px rgba(30,25,20,0.85);
   text-decoration: none;
 }
 
@@ -537,13 +538,13 @@ body {
    ============================================================ */
 .food-strip {
   display:flex; align-items:center; justify-content:center;
-  gap:1.8rem; padding:1.6rem 1rem;
+  gap:2.4rem; padding:2rem 1rem;
 }
 .food-strip svg {
-  opacity: 0.9;
-  transform: scale(1.5);
-  transform-origin: center;
-  filter: drop-shadow(0 0 2px rgba(184,151,90,0.4));
+  height: 64px;
+  width: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 4px rgba(212,176,60,0.7));
 }
 
 /* ============================================================
@@ -853,9 +854,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#c9a84c" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#c9a84c" fill-opacity="0.14"/></svg>
-  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#d4a820" stroke-width="1.8" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#d4a820" stroke-width="1.8" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#d4a820" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
@@ -890,9 +891,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M2 2 L12 2 L9 13 Q7 17 7 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="30" height="32" viewBox="0 0 30 32" fill="none"><ellipse cx="15" cy="22" rx="11" ry="3.5" stroke="#c9a84c" stroke-width="1" opacity="0.3" fill="none"/><ellipse cx="15" cy="18" rx="10" ry="8" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M10 11 Q10 7 10 3" stroke="#c9a84c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M15 9 Q15 5 15 2" stroke="#c9a84c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M20 11 Q20 7 20 3" stroke="#c9a84c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
-  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M12 2 L2 2 L5 13 Q7 17 7 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M2 2 L12 2 L9 13 Q7 17 7 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="30" height="32" viewBox="0 0 30 32" fill="none"><ellipse cx="15" cy="22" rx="11" ry="3.5" stroke="#d4a820" stroke-width="1" opacity="0.3" fill="none"/><ellipse cx="15" cy="18" rx="10" ry="8" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M10 11 Q10 7 10 3" stroke="#d4a820" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M15 9 Q15 5 15 2" stroke="#d4a820" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/><path d="M20 11 Q20 7 20 3" stroke="#d4a820" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
+  <svg width="14" height="32" viewBox="0 0 14 32" fill="none"><path d="M12 2 L2 2 L5 13 Q7 17 7 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="3" y1="30" x2="11" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
@@ -957,9 +958,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#c9a84c" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#c9a84c" fill-opacity="0.14"/></svg>
-  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#d4a820" stroke-width="1.8" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#d4a820" stroke-width="1.8" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#d4a820" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
@@ -994,9 +995,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#c9a84c" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#c9a84c" fill-opacity="0.14"/></svg>
-  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#d4a820" stroke-width="1.8" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#d4a820" stroke-width="1.8" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#d4a820" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
@@ -1026,9 +1027,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#c9a84c" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#c9a84c" fill-opacity="0.14"/></svg>
-  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#d4a820" stroke-width="1.8" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#d4a820" stroke-width="1.8" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#d4a820" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
@@ -1043,17 +1044,17 @@ body.landing-open { overflow: hidden; }
     </div>
     <div class="foodie-grid">
       <div class="foodie-item fade">
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="13" y="17" width="26" height="38" rx="3" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M39 23 Q52 25 52 34 Q52 43 39 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><rect x="16" y="17" width="20" height="9" rx="2" fill="#d4bc7c" fill-opacity="0.12"/><circle cx="22" cy="22" r="1.8" fill="#d4bc7c" fill-opacity="0.3"/><circle cx="30" cy="21" r="1.4" fill="#d4bc7c" fill-opacity="0.25"/></svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="13" y="17" width="26" height="38" rx="3" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><path d="M39 23 Q52 25 52 34 Q52 43 39 46" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><rect x="16" y="17" width="20" height="9" rx="2" fill="#d4bc7c" fill-opacity="0.12"/><circle cx="22" cy="22" r="1.8" fill="#d4bc7c" fill-opacity="0.3"/><circle cx="30" cy="21" r="1.4" fill="#d4bc7c" fill-opacity="0.25"/></svg>
         <h3>Craft Brews</h3>
         <p>Cold pints and local favorites at the Beer Hall bar</p>
       </div>
       <div class="foodie-item fade">
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="46" rx="20" ry="6" stroke="#d4bc7c" stroke-width="1" opacity="0.2" fill="none"/><ellipse cx="36" cy="40" rx="18" ry="13" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M26 28 Q26 21 26 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M26 28 Q27 21 26 14;M26 28 Q25 21 26 14;M26 28 Q27 21 26 14" dur="3s" repeatCount="indefinite"/></path><path d="M36 26 Q36 19 36 12" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M36 26 Q37 19 36 12;M36 26 Q35 19 36 12;M36 26 Q37 19 36 12" dur="2.5s" repeatCount="indefinite"/></path><path d="M46 28 Q46 21 46 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M46 28 Q47 21 46 14;M46 28 Q45 21 46 14;M46 28 Q47 21 46 14" dur="3.5s" repeatCount="indefinite"/></path></svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="46" rx="20" ry="6" stroke="#d4bc7c" stroke-width="1" opacity="0.2" fill="none"/><ellipse cx="36" cy="40" rx="18" ry="13" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><path d="M26 28 Q26 21 26 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M26 28 Q27 21 26 14;M26 28 Q25 21 26 14;M26 28 Q27 21 26 14" dur="3s" repeatCount="indefinite"/></path><path d="M36 26 Q36 19 36 12" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M36 26 Q37 19 36 12;M36 26 Q35 19 36 12;M36 26 Q37 19 36 12" dur="2.5s" repeatCount="indefinite"/></path><path d="M46 28 Q46 21 46 14" stroke="#d4bc7c" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="d" values="M46 28 Q47 21 46 14;M46 28 Q45 21 46 14;M46 28 Q47 21 46 14" dur="3.5s" repeatCount="indefinite"/></path></svg>
         <h3>The Feast</h3>
         <p>Curated bites and bold flavors worth celebrating</p>
       </div>
       <div class="foodie-item fade">
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="24" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M15 46 Q15 38 24 38 Q33 38 33 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><circle cx="48" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><path d="M39 46 Q39 38 48 38 Q57 38 57 46" stroke="#d4bc7c" stroke-width="1.2" fill="none"/><line x1="33" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><line x1="39" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><path d="M36 14 L37 11 L38 14 L41 15 L38 16 L37 19 L36 16 L33 15 Z" fill="#d4bc7c" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/></path></svg>
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="24" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><path d="M15 46 Q15 38 24 38 Q33 38 33 46" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><circle cx="48" cy="30" r="7" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><path d="M39 46 Q39 38 48 38 Q57 38 57 46" stroke="#d4bc7c" stroke-width="1.8" fill="none"/><line x1="33" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><line x1="39" y1="41" x2="36" y2="26" stroke="#d4bc7c" stroke-width="1" stroke-linecap="round"/><path d="M36 14 L37 11 L38 14 L41 15 L38 16 L37 19 L36 16 L33 15 Z" fill="#d4bc7c" opacity="0.6"><animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/></path></svg>
         <h3>Good People</h3>
         <p>Everyone we love, all in one room</p>
       </div>
@@ -1063,9 +1064,9 @@ body.landing-open { overflow: hidden; }
 
 <!-- brick strip -->
 <div class="food-strip" aria-hidden="true">
-  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#c9a84c" stroke-width="1.2" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
-  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#c9a84c" fill-opacity="0.14"/></svg>
-  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <svg width="16" height="32" viewBox="0 0 16 32" fill="none"><line x1="3" y1="2" x2="3" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="2" x2="13" y2="11" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/><path d="M3 11 Q3 16 8 16 Q13 16 13 11" stroke="#d4a820" stroke-width="1.8" fill="none"/><line x1="8" y1="16" x2="8" y2="30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><rect x="2" y="4" width="14" height="24" rx="2" stroke="#d4a820" stroke-width="1.8" fill="none"/><path d="M16 9 Q22 11 22 16 Q22 21 16 23" stroke="#d4a820" stroke-width="1.8" fill="none"/><rect x="4" y="4" width="10" height="5" rx="1" fill="#d4a820" fill-opacity="0.14"/></svg>
+  <svg width="10" height="32" viewBox="0 0 10 32" fill="none"><path d="M5 2 C5 2 9 7 9 12 L5 16 L5 30" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="5" y1="16" x2="1" y2="12" stroke="#d4a820" stroke-width="1.8" stroke-linecap="round"/></svg>
 </div>
 
 <!-- ============================================================
