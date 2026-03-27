@@ -15,7 +15,7 @@
 :root {
   --gold:      #b8975a;
   --dark:      #1a1612;
-  --muted:     #706b65;
+  --muted:     #3d3830;
   --cream:     #faf9f7;
   --white:     #ffffff;
   --nav-h:     52px;
@@ -32,13 +32,22 @@ body {
   font-weight: 300;
   color: var(--dark);
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   background-color: #f0ede8;
   background-image: var(--brick-bg);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+/* iOS/Android: background-attachment:fixed breaks mobile — use scroll instead */
+@media (max-width: 1024px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
 /* ============================================================
@@ -109,6 +118,12 @@ body {
 @media (max-width: 680px) {
   .nav-links { display: none; }
   .nav-burger { display: flex; }
+  body { font-size: 18px; }
+  .sec-title { font-size: clamp(2.2rem, 6vw, 3rem); }
+  .story-text { font-size: 1.2rem; }
+  .tile p, .hotel-info p, .ann-item p { font-size: 1rem; color: var(--muted); }
+  .sec-label { font-size: 0.75rem; }
+  .hero-meta-line { font-size: 0.9rem; }
 }
 
 /* ============================================================
@@ -276,11 +291,11 @@ body {
   max-width: 720px;
   margin: 0 auto;
   padding: 3rem 2rem;
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 .dark .sec-inner {
   background: rgba(26, 22, 18, 0.78);
@@ -346,9 +361,9 @@ body {
   border-radius: 6px;
   padding: 1.8rem 1.2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.22);
 }
-.cream .tile { background: rgba(255, 255, 255, 0.5); }
+.cream .tile { background: rgba(255, 255, 255, 0.22); }
 
 .tile svg { margin-bottom: 0.9rem; }
 .tile h3 {
@@ -414,7 +429,7 @@ body {
   font-size: 0.88rem;
   font-weight: 400;
   transition: all 0.2s;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.22);
 }
 .registry-btn:hover { border-color: var(--gold); }
 .registry-btn svg { opacity: 0.4; }
@@ -749,24 +764,45 @@ footer {
     <div class="hotel-list">
       <div class="hotel-card fade">
         <div class="hotel-info">
-          <h4>The Malden Hotel</h4>
-          <p>0.5 mi from venue &nbsp;·&nbsp; Use code <strong>POJEANINE</strong> for a discount</p>
+          <h4>The Liberty Hotel</h4>
+          <p>215 Charles St, Boston &nbsp;·&nbsp; Iconic boutique in a former 1851 jailhouse &nbsp;·&nbsp; ~5 mi from venue</p>
         </div>
-        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+        <a class="hotel-link" href="https://www.libertyhotel.com" target="_blank" rel="noopener">Book Room</a>
       </div>
       <div class="hotel-card fade">
         <div class="hotel-info">
-          <h4>Marriott Boston Peabody</h4>
-          <p>5 mi from venue &nbsp;·&nbsp; Free shuttle available</p>
+          <h4>Envoy Hotel</h4>
+          <p>70 Sleeper St, Boston &nbsp;·&nbsp; Waterfront boutique with rooftop bar &nbsp;·&nbsp; ~6 mi from venue</p>
         </div>
-        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+        <a class="hotel-link" href="https://www.theenvoyhotel.com" target="_blank" rel="noopener">Book Room</a>
       </div>
       <div class="hotel-card fade">
         <div class="hotel-info">
-          <h4>Hampton Inn &amp; Suites Boston</h4>
-          <p>4 mi from venue &nbsp;·&nbsp; Complimentary breakfast</p>
+          <h4>The Verb Hotel</h4>
+          <p>1271 Boylston St, Boston &nbsp;·&nbsp; Retro-cool boutique near Fenway &nbsp;·&nbsp; ~7 mi from venue</p>
         </div>
-        <a class="hotel-link" href="#" onclick="return false;">Book Room</a>
+        <a class="hotel-link" href="https://www.theverbhotel.com" target="_blank" rel="noopener">Book Room</a>
+      </div>
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>XV Beacon</h4>
+          <p>15 Beacon St, Boston &nbsp;·&nbsp; Luxury boutique on Beacon Hill &nbsp;·&nbsp; ~5 mi from venue</p>
+        </div>
+        <a class="hotel-link" href="https://www.xvbeacon.com" target="_blank" rel="noopener">Book Room</a>
+      </div>
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>The Godfrey Hotel Boston</h4>
+          <p>505 Washington St, Boston &nbsp;·&nbsp; Chic boutique in Downtown Crossing &nbsp;·&nbsp; ~6 mi from venue</p>
+        </div>
+        <a class="hotel-link" href="https://www.godfreyhotelboston.com" target="_blank" rel="noopener">Book Room</a>
+      </div>
+      <div class="hotel-card fade">
+        <div class="hotel-info">
+          <h4>Hotel Commonwealth</h4>
+          <p>500 Commonwealth Ave, Boston &nbsp;·&nbsp; Boutique in Kenmore Square, steps from Fenway &nbsp;·&nbsp; ~7 mi from venue</p>
+        </div>
+        <a class="hotel-link" href="https://www.hotelcommonwealth.com" target="_blank" rel="noopener">Book Room</a>
       </div>
     </div>
   </div>
