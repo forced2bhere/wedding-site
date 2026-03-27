@@ -660,15 +660,23 @@ footer {
 }
 body.landing-open { overflow: hidden; }
 
+.landing-name-group {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .landing-pre {
+  display: flex;
+  justify-content: space-between;
   font-family: var(--font-sans);
-  font-size: clamp(0.9rem, 4.5vw, 1.55rem);
+  font-size: clamp(0.7rem, 2.2vw, 1.1rem);
   font-weight: 400;
-  letter-spacing: clamp(1px, 0.3vw, 2px);
+  letter-spacing: 0;
   text-transform: uppercase;
-  white-space: nowrap;
   color: #b8975a;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 .landing-names {
@@ -762,8 +770,10 @@ body.landing-open { overflow: hidden; }
      ============================================================ -->
 <div id="landing" role="dialog" aria-label="Welcome">
   <div class="landing-inner">
-    <p class="landing-pre">You &nbsp;·&nbsp; Us &nbsp;·&nbsp; Food &nbsp;·&nbsp; Booze</p>
-    <div class="landing-names">Jeanine</div>
+    <div class="landing-name-group">
+      <p class="landing-pre"><span>You</span><span>Us</span><span>Food</span><span>Booze</span></p>
+      <div class="landing-names">Jeanine</div>
+    </div>
     <span class="landing-amp">+</span>
     <div class="landing-names">Po</div>
     <div class="landing-divider"></div>
