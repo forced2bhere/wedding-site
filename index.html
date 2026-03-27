@@ -41,12 +41,13 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-/* iOS/Android: background-attachment:fixed breaks mobile — use scroll instead */
+/* iOS/Android: fixed attachment breaks mobile; tile image at viewport width so full brick is visible */
 @media (max-width: 1024px) {
   body {
     background-attachment: scroll;
-    background-size: cover;
-    background-position: center center;
+    background-size: 100vw auto;
+    background-position: top center;
+    background-repeat: repeat-y;
   }
 }
 
@@ -119,10 +120,10 @@ body {
   .nav-links { display: none; }
   .nav-burger { display: flex; }
   body { font-size: 18px; }
-  .sec-title { font-size: clamp(2.2rem, 6vw, 3rem); }
+  .sec-title { font-size: clamp(2.6rem, 7vw, 3.6rem); }
   .story-text { font-size: 1.2rem; }
   .tile p, .hotel-info p, .ann-item p { font-size: 1rem; color: var(--muted); }
-  .sec-label { font-size: 0.75rem; }
+  .sec-label { font-size: 1rem; }
   .hero-meta-line { font-size: 0.9rem; }
 }
 
@@ -306,7 +307,7 @@ body {
 @media (min-width: 500px) { .sec-inner { padding: 4rem 3rem; } }
 
 .sec-label {
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -317,7 +318,7 @@ body {
 
 .sec-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
   font-weight: 300;
   letter-spacing: 0.04em;
   color: var(--dark);
