@@ -22,7 +22,7 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'Montserrat', 'Helvetica Neue', sans-serif;
 
-  --brick-bg: url("brick-bg.jpg");
+  --brick-bg: url("brick-tile.jpg");
 }
 
 html { scroll-behavior: smooth; }
@@ -36,18 +36,18 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: #f0ede8;
   background-image: var(--brick-bg);
-  background-size: cover;
-  background-position: center top;
+  background-size: 1200px auto;
+  background-position: top left;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
-/* iOS/Android: fixed attachment breaks mobile; tile image at viewport width so full brick is visible */
+/* iOS/Android: fixed attachment breaks mobile */
 @media (max-width: 1024px) {
   body {
     background-attachment: scroll;
-    background-size: 100vw auto;
-    background-position: top center;
-    background-repeat: repeat-y;
+    background-size: 768px auto;
+    background-position: top left;
+    background-repeat: repeat;
   }
 }
 
@@ -632,9 +632,10 @@ footer {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-image: url("brick-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  background-image: url("brick-tile.jpg");
+  background-size: 1200px auto;
+  background-position: top left;
+  background-repeat: repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
